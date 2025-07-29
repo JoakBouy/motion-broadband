@@ -1,0 +1,49 @@
+{
+  "name": "motion-broadband",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Professional website for Motion Broadband - High-speed internet services",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "lint": "eslint . --ext js,jsx,ts,tsx",
+    "lint:fix": "eslint . --ext js,jsx,ts,tsx --fix"
+  },
+  "dependencies": {
+    "framer-motion": "^10.16.4",
+    "gsap": "^3.12.2",
+    "lucide-react": "^0.263.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-intersection-observer": "^9.5.2",
+    "react-router-dom": "^6.8.1"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.32.0",
+    "@types/react": "^18.2.15",
+    "@types/react-dom": "^18.2.7",
+    "@vitejs/plugin-react": "^4.0.3",
+    "autoprefixer": "^10.4.14",
+    "eslint": "^8.57.1",
+    "eslint-plugin-react": "^7.37.5",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-react-refresh": "^0.4.3",
+    "globals": "^16.3.0",
+    "postcss": "^8.4.27",
+    "tailwindcss": "^3.3.3",
+    "vite": "^7.0.6"
+  },
+  "keywords": [
+    "react",
+    "website",
+    "broadband",
+    "internet",
+    "gsap",
+    "framer-motion",
+    "responsive"
+  ],
+  "author": "Motion Broadband",
+  "license": "MIT"
+}
