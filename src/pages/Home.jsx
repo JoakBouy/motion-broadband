@@ -1,35 +1,36 @@
 import { motion } from 'framer-motion'
-import { Wifi, Globe, Shield, Zap, Home as HomeIcon, Building, Store, MapPin, ArrowRight, Star, Satellite, Users, Award, CheckCircle, Clock, DollarSign, TrendingUp } from 'lucide-react'
+import { Link } from 'react-router-dom'
+import { Wifi, Globe, Shield, Zap, Home as HomeIcon, Building, Store, ArrowRight, Users, Award, CheckCircle, Clock } from 'lucide-react'
 
 const Home = () => {
   const valuePropositions = [
     {
       icon: Globe,
       title: 'Nationwide Coverage',
-      description: 'From the bustling capital of Juba to the most remote towns like Akobo, Bentiu, and Pibor, we\'ve established comprehensive coverage across all 10 states of South Sudan. Our satellite-based infrastructure ensures that no matter how remote your location, you can access high-speed internet connectivity that was previously unimaginable in these areas.',
+      description: 'Complete coverage across all 10 states of South Sudan, from Juba to remote towns like Akobo, Bentiu, and Pibor. Our satellite infrastructure delivers high-speed internet to previously unreachable areas.',
       color: 'from-blue-500 to-cyan-500',
-      image: '/images/coverage-placeholder.svg'
+      image: '/images/satellite/south-sudan-coverage-map.webp'
     },
     {
       icon: Shield,
       title: 'Affordable Pricing',
-      description: 'We understand the economic challenges faced by individuals and businesses in South Sudan. That\'s why we\'ve designed our pricing structure to be the most competitive in the market, offering flexible plans that cater to different budgets and usage requirements. Our transparent pricing ensures no hidden costs, making high-speed internet accessible to everyone.',
+      description: 'Competitive, transparent pricing designed for South Sudan\'s market. Flexible plans for different budgets with no hidden costs, making high-speed internet accessible to everyone.',
       color: 'from-green-500 to-emerald-500',
-      image: '/images/pricing-placeholder.svg'
+      image: '/images/satellite/juba-urban-connectivity.webp'
     },
     {
       icon: Wifi,
       title: 'Reliable Support',
-      description: 'Our commitment to customer satisfaction goes beyond just providing internet service. We offer round-the-clock technical assistance through our dedicated customer support team. Whether you\'re experiencing connectivity issues, need help with installation, or have questions about your service, our experienced technicians are available 24/7 to ensure your internet experience remains seamless.',
+      description: '24/7 technical support from our dedicated team. Whether it\'s installation, connectivity issues, or service questions, our experienced technicians ensure seamless internet experience.',
       color: 'from-purple-500 to-pink-500',
-      image: '/images/support-placeholder.svg'
+      image: '/images/satellite/malakal-support-center.webp'
     },
     {
       icon: Zap,
       title: 'Cutting-Edge Technology',
-      description: 'We bring you Starlink, the world\'s most advanced satellite internet system developed by SpaceX. This revolutionary technology provides unprecedented speeds and reliability, even in the most challenging environments. Our infrastructure utilizes the latest satellite technology to deliver consistent, high-performance internet that rivals traditional fiber-optic connections.',
+      description: 'Powered by Starlink, SpaceX\'s advanced satellite internet system. Revolutionary technology delivering unprecedented speeds and reliability, even in challenging environments.',
       color: 'from-orange-500 to-red-500',
-      image: '/images/technology-placeholder.svg'
+      image: '/images/satellite/starlink-network-visualization.webp'
     }
   ]
 
@@ -37,44 +38,44 @@ const Home = () => {
     {
       icon: HomeIcon,
       title: 'Starlink for Home Use',
-      description: 'Transform your home into a connected hub with our residential Starlink service. Whether you\'re streaming your favorite shows in high definition, working remotely with video conferencing, helping your children with online education, or enjoying online gaming with friends, our reliable internet ensures smooth performance for all your family\'s digital needs.',
+      description: 'Transform your home with reliable Starlink service. Perfect for streaming, remote work, online education, and gaming - ensuring smooth performance for all your family\'s digital needs.',
       features: [
-        'High-speed streaming for multiple devices simultaneously',
-        'Seamless video conferencing and remote work capabilities',
-        'Online gaming with low latency and stable connections',
-        'Educational content access for students of all ages',
-        'Social media and communication platform support',
-        'Smart home device connectivity and management'
+        'High-speed streaming for multiple devices',
+        'Seamless video conferencing and remote work',
+        'Low-latency gaming and stable connections',
+        'Educational content access for students',
+        'Social media and communication support',
+        'Smart home device connectivity'
       ],
-      image: '/images/home-internet-placeholder.svg'
+      image: '/images/satellite/residential-installations-juba.webp'
     },
     {
       icon: Building,
       title: 'Starlink for Office Use',
-      description: 'Empower your organization with enterprise-grade internet connectivity that supports multiple users and bandwidth-intensive applications. Our office solutions are designed to handle the demands of modern workplaces, from NGOs and development partners to diplomatic missions and government institutions. Experience enhanced productivity with reliable, high-speed internet that keeps your team connected and efficient.',
+      description: 'Enterprise-grade connectivity for organizations, NGOs, diplomatic missions, and government institutions. Enhanced productivity with reliable, high-speed internet that keeps teams connected.',
       features: [
-        'Multi-user support with dedicated bandwidth allocation',
+        'Multi-user support with dedicated bandwidth',
         'Secure VPN and remote access capabilities',
-        'Cloud-based application and data storage support',
-        'Video conferencing and collaboration tools optimization',
-        'Backup connectivity solutions for business continuity',
-        'Customized network management and monitoring'
+        'Cloud application and data storage support',
+        'Optimized video conferencing and collaboration',
+        'Backup connectivity for business continuity',
+        'Network management and monitoring'
       ],
-      image: '/images/office-internet-placeholder.svg'
+      image: '/images/satellite/ngo-office-compound-malakal.webp'
     },
     {
       icon: Store,
       title: 'Starlink for Business Use',
-      description: 'Take your business to the next level with our comprehensive business internet solutions. Whether you\'re running a small café, a large hotel, or a retail establishment, our services help you delight customers with fast, reliable Wi-Fi while generating additional revenue through automated voucher systems. Our business packages include advanced features designed to enhance customer experience and boost your bottom line.',
+      description: 'Comprehensive solutions for cafés, hotels, and retail establishments. Delight customers with fast Wi-Fi while generating additional revenue through automated systems.',
       features: [
-        'Customer Wi-Fi hotspot management and monetization',
-        'Automated voucher system for pay-per-use internet access',
-        'Business analytics and usage reporting tools',
-        'Custom branding and splash page customization',
-        'Advanced security features and content filtering',
-        'Technical support and maintenance services'
+        'Customer Wi-Fi management and monetization',
+        'Automated voucher system for pay-per-use',
+        'Business analytics and usage reporting',
+        'Custom branding and splash pages',
+        'Advanced security and content filtering',
+        'Technical support and maintenance'
       ],
-      image: '/images/business-internet-placeholder.svg'
+      image: '/images/satellite/hotel-business-wau.webp'
     }
   ]
 
@@ -155,36 +156,38 @@ const Home = () => {
             Connecting you to affordable, reliable and high speed starlink internet
           </motion.h2>
           
-          <motion.p 
+          <motion.p
             className="text-lg md:text-xl text-gray-200 max-w-4xl mx-auto mb-12 leading-relaxed text-shadow"
             variants={itemVariants}
           >
-            Whether you're at home, in the office, running a business, or managing operations in remote areas, 
-            Motion Broadband ensures you stay connected with fast, reliable, & affordable internet from space. 
-            Our mission is to bridge the digital divide in South Sudan by bringing world-class satellite internet 
-            technology to every corner of the country, empowering individuals, businesses, and institutions to 
-            thrive in the digital age.
+            Fast, reliable, and affordable internet from space. We bridge South Sudan's digital divide
+            with world-class satellite technology, empowering communities from Juba to remote areas
+            to thrive in the digital age.
           </motion.p>
           
-          <motion.div 
+          <motion.div
             className="flex flex-col sm:flex-row gap-4 justify-center items-center"
             variants={itemVariants}
           >
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="btn-primary text-lg px-8 py-4 flex items-center space-x-2"
-            >
-              <span>Get Connected Today</span>
-              <ArrowRight className="h-5 w-5" />
-            </motion.button>
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="btn-secondary text-lg px-8 py-4"
-            >
-              View Packages
-            </motion.button>
+            <Link to="/contact">
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="btn-primary text-lg px-8 py-4 flex items-center space-x-2 no-underline"
+              >
+                <span>Get Connected Today</span>
+                <ArrowRight className="h-5 w-5" />
+              </motion.div>
+            </Link>
+            <Link to="/services">
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="btn-secondary text-lg px-8 py-4 no-underline"
+              >
+                View Our Services
+              </motion.div>
+            </Link>
           </motion.div>
         </motion.div>
       </section>
@@ -203,9 +206,8 @@ const Home = () => {
               Why Choose <span className="text-gradient">Motion Broadband</span>?
             </h2>
             <p className="text-xl text-gray-700 max-w-4xl mx-auto leading-relaxed">
-              We're committed to bringing the world's most advanced satellite internet technology to every corner of South Sudan. 
-              Our comprehensive approach combines cutting-edge Starlink technology with local expertise, ensuring that every 
-              customer receives personalized service and reliable connectivity that transforms their digital experience.
+              Advanced Starlink technology meets local expertise. We deliver personalized service and
+              reliable connectivity that transforms your digital experience across South Sudan.
             </p>
           </motion.div>
 
@@ -216,7 +218,7 @@ const Home = () => {
             whileInView="visible"
             viewport={{ once: true }}
           >
-            {valuePropositions.map((prop, index) => (
+            {valuePropositions.map((prop) => (
               <motion.div
                 key={prop.title}
                 className="card p-8 text-center group hover:shadow-2xl transition-all duration-500"
@@ -256,10 +258,8 @@ const Home = () => {
               Our <span className="text-gradient">Comprehensive Services</span>
             </h2>
             <p className="text-xl text-gray-700 max-w-4xl mx-auto leading-relaxed">
-              Comprehensive internet solutions tailored for every need, from home connectivity to enterprise solutions. 
-              We understand that different users have different requirements, which is why we've developed specialized 
-              packages that address the unique challenges and opportunities faced by individuals, families, businesses, 
-              and institutions across South Sudan.
+              Tailored internet solutions for every need. Specialized packages for individuals, families,
+              businesses, and institutions across South Sudan.
             </p>
           </motion.div>
 
@@ -270,7 +270,7 @@ const Home = () => {
             whileInView="visible"
             viewport={{ once: true }}
           >
-            {services.map((service, index) => (
+            {services.map((service) => (
               <motion.div
                 key={service.title}
                 className="card p-8 group hover:shadow-2xl transition-all duration-500"
@@ -325,9 +325,8 @@ const Home = () => {
               Our <span className="text-yellow-300">Impact</span> Across South Sudan
             </h2>
             <p className="text-xl text-blue-100 max-w-4xl mx-auto leading-relaxed">
-              Numbers that tell the story of our commitment to connecting South Sudan. Every statistic represents 
-              real people, families, and businesses whose lives have been transformed by reliable internet connectivity. 
-              We're proud of our achievements but remain focused on expanding our reach to serve even more communities.
+              Real impact across South Sudan. Every number represents lives transformed by reliable
+              internet connectivity as we expand our reach to serve more communities.
             </p>
           </motion.div>
 
