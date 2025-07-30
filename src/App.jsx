@@ -12,6 +12,8 @@ import About from './pages/About'
 import Services from './pages/Services'
 import Contact from './pages/Contact'
 import Privacy from './pages/Privacy'
+import HelpCentre from './pages/HelpCentre'
+import TermsOfService from './pages/TermsOfService'
 
 function App() {
   return (
@@ -27,6 +29,8 @@ function App() {
               <Route path="/services" element={<Services />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="/privacy" element={<Privacy />} />
+              <Route path="/help" element={<HelpCentre />} />
+              <Route path="/terms" element={<TermsOfService />} />
             </Routes>
           </PageTransition>
         </main>
