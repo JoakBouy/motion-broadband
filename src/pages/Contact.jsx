@@ -1,16 +1,18 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
-import { 
-  MapPin, 
-  Phone, 
-  Mail, 
-  Clock, 
-  MessageCircle, 
-  Send, 
+import emailjs from '@emailjs/browser'
+import {
+  MapPin,
+  Phone,
+  Mail,
+  Clock,
+  MessageCircle,
+  Send,
   CheckCircle,
   Globe,
   Users,
-  Shield
+  Shield,
+  AlertCircle
 } from 'lucide-react'
 
 const Contact = () => {
@@ -23,12 +25,13 @@ const Contact = () => {
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitSuccess, setSubmitSuccess] = useState(false)
+  const [submitError, setSubmitError] = useState(false)
 
   const contactInfo = [
     {
       icon: MapPin,
       title: 'Office Address',
-      content: 'Plot 23, Munuki, Block B, Juba, Central Equatoria State, South Sudan',
+      content: 'Plot 27, Munuki, Block B, Juba, Central Equatoria State, South Sudan',
       link: '#',
       color: 'from-blue-500 to-cyan-500'
     },
@@ -42,8 +45,8 @@ const Contact = () => {
     {
       icon: Mail,
       title: 'Email Address',
-      content: 'sales@motion.com\nbroadband.motion@gmail.com',
-      link: 'mailto:sales@motion.com',
+      content: 'sales@motionbroadbandltd.com\nbroadband.motion@gmail.com',
+      link: 'mailto:sales@motionbroadbandltd.com',
       color: 'from-purple-500 to-pink-500'
     },
     {
@@ -66,24 +69,75 @@ const Contact = () => {
   const handleSubmit = async (e) => {
     e.preventDefault()
     setIsSubmitting(true)
-    
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 2000))
-    
-    setIsSubmitting(false)
-    setSubmitSuccess(true)
-    
-    // Reset form
-    setFormData({
-      name: '',
-      email: '',
-      phone: '',
-      subject: '',
-      message: ''
-    })
-    
-    // Hide success message after 5 seconds
-    setTimeout(() => setSubmitSuccess(false), 5000)
+    setSubmitError(false)
+    setSubmitSuccess(false)
+
+    try {
+      // EmailJS configuration from environment variables
+      const serviceId = process.env.REACT_APP_EMAILJS_SERVICE_ID
+      const templateId = process.env.REACT_APP_EMAILJS_TEMPLATE_ID
+      const publicKey = process.env.REACT_APP_EMAILJS_PUBLIC_KEY
+
+      // Check if EmailJS is configured
+      if (!serviceId || !templateId || !publicKey) {
+        // Fallback to mailto if EmailJS is not configured
+        const mailtoLink = `mailto:sales@motionbroadbandltd.com?subject=${encodeURIComponent(formData.subject)}&body=${encodeURIComponent(
+          `Name: ${formData.name}\nEmail: ${formData.email}\nPhone: ${formData.phone}\n\nMessage:\n${formData.message}`
+        )}`
+        window.open(mailtoLink, '_blank')
+
+        setIsSubmitting(false)
+        setSubmitSuccess(true)
+
+        // Reset form
+        setFormData({
+          name: '',
+          email: '',
+          phone: '',
+          subject: '',
+          message: ''
+        })
+
+        setTimeout(() => setSubmitSuccess(false), 5000)
+        return
+      }
+
+      // Prepare template parameters
+      const templateParams = {
+        from_name: formData.name,
+        from_email: formData.email,
+        phone: formData.phone,
+        subject: formData.subject,
+        message: formData.message,
+        to_email: 'sales@motionbroadbandltd.com'
+      }
+
+      // Send email using EmailJS
+      await emailjs.send(serviceId, templateId, templateParams, publicKey)
+
+      setIsSubmitting(false)
+      setSubmitSuccess(true)
+
+      // Reset form
+      setFormData({
+        name: '',
+        email: '',
+        phone: '',
+        subject: '',
+        message: ''
+      })
+
+      // Hide success message after 5 seconds
+      setTimeout(() => setSubmitSuccess(false), 5000)
+
+    } catch (error) {
+      console.error('Email sending failed:', error)
+      setIsSubmitting(false)
+      setSubmitError(true)
+
+      // Hide error message after 5 seconds
+      setTimeout(() => setSubmitError(false), 5000)
+    }
   }
 
   return (
@@ -116,7 +170,7 @@ const Contact = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {contactInfo.map((info, index) => (
+            {contactInfo.map((info) => (
               <motion.div
                 key={info.title}
                 className="card p-6 text-center group hover:shadow-2xl transition-all duration-500"
@@ -193,6 +247,18 @@ const Contact = () => {
                   <CheckCircle className="h-16 w-16 text-green-500 mx-auto mb-4" />
                   <h3 className="text-2xl font-semibold text-gray-900 mb-2">Message Sent!</h3>
                   <p className="text-gray-700">Thank you for contacting us. We'll get back to you soon.</p>
+                </div>
+              ) : submitError ? (
+                <div className="text-center py-8">
+                  <AlertCircle className="h-16 w-16 text-red-500 mx-auto mb-4" />
+                  <h3 className="text-2xl font-semibold text-gray-900 mb-2">Message Failed to Send</h3>
+                  <p className="text-gray-700 mb-4">Sorry, there was an error sending your message. Please try again or contact us directly.</p>
+                  <button
+                    onClick={() => setSubmitError(false)}
+                    className="btn-primary"
+                  >
+                    Try Again
+                  </button>
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-6">

@@ -21,7 +21,6 @@ const Navbar = () => {
     { name: 'About', path: '/about' },
     { name: 'Services', path: '/services' },
     { name: 'Portfolio', path: '/portfolio' },
-    { name: 'Case Studies', path: '/case-studies' },
     { name: 'Contact', path: '/contact' },
   ]
 
@@ -80,13 +79,15 @@ const Navbar = () => {
 
           {/* CTA Button */}
           <div className="hidden lg:block">
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="btn-primary"
-            >
-              Get Started
-            </motion.button>
+            <Link to="/contact">
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="btn-primary"
+              >
+                Get Started
+              </motion.button>
+            </Link>
           </div>
 
           {/* Mobile Menu Button */}
@@ -157,9 +158,11 @@ const Navbar = () => {
                   transition={{ delay: navItems.length * 0.1 }}
                   className="px-4 pt-2"
                 >
-                  <button className="w-full btn-primary">
-                    Get Started
-                  </button>
+                  <Link to="/contact">
+                    <button className="w-full btn-primary">
+                      Get Started
+                    </button>
+                  </Link>
                 </motion.div>
               </div>
             </motion.div>

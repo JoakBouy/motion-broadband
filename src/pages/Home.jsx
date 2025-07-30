@@ -141,23 +141,23 @@ const Home = () => {
           animate="visible"
           variants={containerVariants}
         >
-          <motion.h1 
-            className="text-4xl md:text-6xl lg:text-7xl font-display font-bold text-white mb-6 leading-tight text-shadow-lg"
+          <motion.h1
+            className="text-2xl sm:text-3xl md:text-6xl lg:text-7xl font-display font-bold text-white mb-6 leading-tight text-shadow-lg"
             variants={itemVariants}
           >
             South Sudan's Leading{' '}
             <span className="text-gradient">Starlink Internet Provider</span>
           </motion.h1>
           
-          <motion.h2 
-            className="text-xl md:text-2xl lg:text-3xl font-medium text-blue-100 mb-8 text-shadow"
+          <motion.h2
+            className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-medium text-blue-100 mb-8 text-shadow"
             variants={itemVariants}
           >
             Connecting you to affordable, reliable and high speed starlink internet
           </motion.h2>
           
           <motion.p
-            className="text-lg md:text-xl text-gray-200 max-w-4xl mx-auto mb-12 leading-relaxed text-shadow"
+            className="text-base sm:text-lg md:text-xl text-gray-200 max-w-4xl mx-auto mb-12 leading-relaxed text-shadow"
             variants={itemVariants}
           >
             Fast, reliable, and affordable internet from space. We bridge South Sudan's digital divide
@@ -173,17 +173,17 @@ const Home = () => {
               <motion.div
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="btn-primary text-lg px-8 py-4 flex items-center space-x-2 no-underline"
+                className="btn-primary text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 flex items-center space-x-2 no-underline"
               >
                 <span>Get Connected Today</span>
-                <ArrowRight className="h-5 w-5" />
+                <ArrowRight className="h-4 w-4 sm:h-5 sm:w-5" />
               </motion.div>
             </Link>
             <Link to="/services">
               <motion.div
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="btn-secondary text-lg px-8 py-4 no-underline"
+                className="btn-secondary text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 no-underline"
               >
                 View Our Services
               </motion.div>
@@ -202,10 +202,10 @@ const Home = () => {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-gray-900 mb-6">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-display font-bold text-gray-900 mb-6">
               Why Choose <span className="text-gradient">Motion Broadband</span>?
             </h2>
-            <p className="text-xl text-gray-700 max-w-4xl mx-auto leading-relaxed">
+            <p className="text-lg sm:text-xl text-gray-700 max-w-4xl mx-auto leading-relaxed">
               Advanced Starlink technology meets local expertise. We deliver personalized service and
               reliable connectivity that transforms your digital experience across South Sudan.
             </p>
@@ -236,7 +236,7 @@ const Home = () => {
                     className="w-full h-full object-cover"
                   />
                 </motion.div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-4">{prop.title}</h3>
+                <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-4">{prop.title}</h3>
                 <p className="text-gray-700 leading-relaxed text-sm">{prop.description}</p>
               </motion.div>
             ))}
@@ -254,10 +254,10 @@ const Home = () => {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-gray-900 mb-6">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-display font-bold text-gray-900 mb-6">
               Our <span className="text-gradient">Comprehensive Services</span>
             </h2>
-            <p className="text-xl text-gray-700 max-w-4xl mx-auto leading-relaxed">
+            <p className="text-lg sm:text-xl text-gray-700 max-w-4xl mx-auto leading-relaxed">
               Tailored internet solutions for every need. Specialized packages for individuals, families,
               businesses, and institutions across South Sudan.
             </p>
@@ -288,7 +288,7 @@ const Home = () => {
                     className="w-full h-full object-cover"
                   />
                 </motion.div>
-                <h3 className="text-2xl font-semibold text-gray-900 mb-4">{service.title}</h3>
+                <h3 className="text-xl sm:text-2xl font-semibold text-gray-900 mb-4">{service.title}</h3>
                 <p className="text-gray-700 mb-6 leading-relaxed text-sm">{service.description}</p>
                 <ul className="space-y-3">
                   {service.features.map((feature, idx) => (
@@ -321,10 +321,10 @@ const Home = () => {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-3xl md:text-4xl font-display font-bold text-white mb-6">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-bold text-white mb-6">
               Our <span className="text-yellow-300">Impact</span> Across South Sudan
             </h2>
-            <p className="text-xl text-blue-100 max-w-4xl mx-auto leading-relaxed">
+            <p className="text-lg sm:text-xl text-blue-100 max-w-4xl mx-auto leading-relaxed">
               Real impact across South Sudan. Every number represents lives transformed by reliable
               internet connectivity as we expand our reach to serve more communities.
             </p>
@@ -356,8 +356,8 @@ const Home = () => {
                 >
                   <stat.icon className="h-10 w-10 text-white" />
                 </motion.div>
-                <motion.div 
-                  className="text-3xl md:text-4xl font-bold text-white mb-2"
+                <motion.div
+                  className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-2"
                   initial={{ scale: 0 }}
                   whileInView={{ scale: 1 }}
                   transition={{ delay: index * 0.1, type: "spring", stiffness: 200 }}
@@ -365,8 +365,8 @@ const Home = () => {
                 >
                   {stat.number}
                 </motion.div>
-                <div className="text-blue-100 font-medium mb-1">{stat.label}</div>
-                <div className="text-blue-200 text-sm">{stat.description}</div>
+                <div className="text-sm sm:text-base text-blue-100 font-medium mb-1">{stat.label}</div>
+                <div className="text-xs sm:text-sm text-blue-200">{stat.description}</div>
               </motion.div>
             ))}
           </motion.div>

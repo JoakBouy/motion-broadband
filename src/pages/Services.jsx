@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import { Link } from 'react-router-dom'
 import { 
   Wifi, 
   Settings, 
@@ -239,14 +240,16 @@ const Services = () => {
             <p className="text-xl text-blue-100 max-w-3xl mx-auto mb-8">
               Join thousands of satisfied customers across South Sudan who trust Motion Broadband for their internet needs.
             </p>
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="btn-primary text-lg px-8 py-4 flex items-center space-x-2 mx-auto"
-            >
-              <span>Get Started Today</span>
-              <ArrowRight className="h-5 w-5" />
-            </motion.button>
+            <Link to="/contact">
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="btn-primary text-lg px-8 py-4 flex items-center space-x-2 mx-auto"
+              >
+                <span>Get Started Today</span>
+                <ArrowRight className="h-5 w-5" />
+              </motion.button>
+            </Link>
           </div>
         </div>
       </section>
