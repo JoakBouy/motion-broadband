@@ -223,14 +223,15 @@ const About = () => {
       {/* Our Story */}
       <section className="section-padding bg-gradient-to-br from-gray-50 to-white">
         <div className="container-custom">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center mb-12 md:mb-16">
             <motion.div
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
+              className="px-4 lg:px-0"
             >
-              <h2 className="text-3xl md:text-4xl font-display font-bold text-gray-900 mb-8">
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-display font-bold text-gray-900 mb-6 md:mb-8">
                 Our <span className="text-gradient">Story</span>
               </h2>
               <div className="space-y-6 text-gray-700 leading-relaxed">
@@ -284,13 +285,13 @@ const About = () => {
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
               viewport={{ once: true }}
-              className="lg:pl-8"
+              className="lg:pl-8 px-4 lg:px-0"
             >
-              <div className="w-full h-96 bg-gradient-to-br from-primary-100 to-secondary-100 rounded-2xl flex items-center justify-center">
-                <div className="text-center">
-                  <Globe className="h-24 w-24 text-primary-500 mx-auto mb-4" />
-                  <h3 className="text-2xl font-semibold text-gray-900 mb-2">Our Reach</h3>
-                  <p className="text-gray-700">Connecting South Sudan nationwide</p>
+              <div className="w-full h-64 md:h-80 lg:h-96 bg-gradient-to-br from-primary-100 to-secondary-100 rounded-xl md:rounded-2xl flex items-center justify-center">
+                <div className="text-center px-4">
+                  <Globe className="h-16 md:h-20 lg:h-24 w-16 md:w-20 lg:w-24 text-primary-500 mx-auto mb-3 md:mb-4" />
+                  <h3 className="text-xl md:text-2xl font-semibold text-gray-900 mb-2">Our Reach</h3>
+                  <p className="text-sm md:text-base text-gray-700">Connecting South Sudan nationwide</p>
                 </div>
               </div>
             </motion.div>
@@ -304,18 +305,18 @@ const About = () => {
             viewport={{ once: true }}
             className="mb-16"
           >
-            <div className="text-center mb-8">
-              <h3 className="text-3xl md:text-4xl font-display font-bold text-gray-900 mb-4">
+            <div className="text-center mb-6 md:mb-8 px-4">
+              <h3 className="text-2xl md:text-3xl lg:text-4xl font-display font-bold text-gray-900 mb-3 md:mb-4">
                 South Sudan from <span className="text-gradient">Above</span>
               </h3>
-              <p className="text-xl text-gray-700 max-w-3xl mx-auto">
+              <p className="text-lg md:text-xl text-gray-700 max-w-3xl mx-auto">
                 Our beautiful nation from a bird's eye view - the diverse landscape we're proud to serve
               </p>
             </div>
 
-            {/* Full-Width Image Container */}
+            {/* Full-Width Image Container - Mobile Optimized */}
             <motion.div
-              className="relative w-full h-64 md:h-80 lg:h-[500px] xl:h-[600px] bg-gradient-to-br from-gray-100 to-gray-200 rounded-2xl overflow-hidden shadow-2xl"
+              className="relative w-full h-48 sm:h-64 md:h-80 lg:h-[500px] xl:h-[600px] bg-gradient-to-br from-gray-100 to-gray-200 rounded-xl md:rounded-2xl overflow-hidden shadow-xl md:shadow-2xl mx-2 md:mx-0"
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, delay: 0.4 }}
@@ -335,13 +336,13 @@ const About = () => {
               {/* Image overlay with gradient for text readability */}
               <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
 
-              {/* Caption overlay */}
-              <div className="absolute bottom-6 left-6 right-6">
-                <div className="bg-white/95 backdrop-blur-sm rounded-xl p-6 max-w-2xl mx-auto text-center">
-                  <p className="text-lg text-gray-800 font-medium mb-2">
+              {/* Caption overlay - optimized for mobile */}
+              <div className="absolute bottom-4 left-4 right-4 md:bottom-6 md:left-6 md:right-6">
+                <div className="bg-white/90 backdrop-blur-sm rounded-lg p-3 md:p-4 max-w-lg md:max-w-2xl mx-auto text-center">
+                  <p className="text-sm md:text-lg text-gray-800 font-medium">
                     Connecting communities across South Sudan's diverse landscape
                   </p>
-                  <p className="text-sm text-gray-600">
+                  <p className="text-xs md:text-sm text-gray-600 mt-1 md:mt-2 hidden md:block">
                     From bustling cities to remote villages, Motion Broadband brings reliable internet to every corner of our nation
                   </p>
                 </div>
@@ -356,33 +357,33 @@ const About = () => {
             transition={{ duration: 0.6, delay: 0.4 }}
             viewport={{ once: true }}
           >
-            <div className="bg-gradient-to-br from-primary-50 to-secondary-50 rounded-2xl p-8 border border-primary-100">
-                <div className="text-center mb-8">
+            <div className="bg-gradient-to-br from-primary-50 to-secondary-50 rounded-xl md:rounded-2xl p-4 md:p-6 lg:p-8 border border-primary-100 mx-2 md:mx-0">
+                <div className="text-center mb-6 md:mb-8">
                   <motion.div
                     initial={{ scale: 0 }}
                     whileInView={{ scale: 1 }}
                     transition={{ duration: 0.6, delay: 0.8 }}
                     viewport={{ once: true }}
                   >
-                    <Globe className="h-16 w-16 text-primary-500 mx-auto mb-4" />
+                    <Globe className="h-12 md:h-14 lg:h-16 w-12 md:w-14 lg:w-16 text-primary-500 mx-auto mb-3 md:mb-4" />
                   </motion.div>
-                  <h3 className="text-2xl font-semibold text-gray-900 mb-2">Nationwide Coverage</h3>
-                  <p className="text-gray-700 mb-6">Serving all 10 states of South Sudan</p>
+                  <h3 className="text-xl md:text-2xl font-semibold text-gray-900 mb-2">Nationwide Coverage</h3>
+                  <p className="text-sm md:text-base text-gray-700 mb-4 md:mb-6">Serving all 10 states of South Sudan</p>
                 </div>
 
-                {/* State Coverage Grid */}
-                <div className="grid grid-cols-2 gap-4">
+                {/* State Coverage Grid - Mobile Optimized */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-4">
                   {[
-                    { name: 'Central Equatoria', icon: MapPin, status: 'excellent', signal: 4 },
-                    { name: 'Eastern Equatoria', icon: MapPin, status: 'excellent', signal: 4 },
-                    { name: 'Western Equatoria', icon: MapPin, status: 'good', signal: 3 },
-                    { name: 'Jonglei', icon: MapPin, status: 'good', signal: 3 },
-                    { name: 'Unity', icon: MapPin, status: 'excellent', signal: 4 },
-                    { name: 'Upper Nile', icon: MapPin, status: 'good', signal: 3 },
-                    { name: 'Warrap', icon: MapPin, status: 'good', signal: 3 },
-                    { name: 'Northern Bahr el Ghazal', icon: MapPin, status: 'active', signal: 2 },
-                    { name: 'Western Bahr el Ghazal', icon: MapPin, status: 'good', signal: 3 },
-                    { name: 'Lakes', icon: MapPin, status: 'active', signal: 2 }
+                    { name: 'Central Equatoria', shortName: 'C. Equatoria', icon: MapPin, status: 'excellent', signal: 4 },
+                    { name: 'Eastern Equatoria', shortName: 'E. Equatoria', icon: MapPin, status: 'excellent', signal: 4 },
+                    { name: 'Western Equatoria', shortName: 'W. Equatoria', icon: MapPin, status: 'good', signal: 3 },
+                    { name: 'Jonglei', shortName: 'Jonglei', icon: MapPin, status: 'good', signal: 3 },
+                    { name: 'Unity', shortName: 'Unity', icon: MapPin, status: 'excellent', signal: 4 },
+                    { name: 'Upper Nile', shortName: 'Upper Nile', icon: MapPin, status: 'good', signal: 3 },
+                    { name: 'Warrap', shortName: 'Warrap', icon: MapPin, status: 'good', signal: 3 },
+                    { name: 'Northern Bahr el Ghazal', shortName: 'N. Bahr el Ghazal', icon: MapPin, status: 'active', signal: 2 },
+                    { name: 'Western Bahr el Ghazal', shortName: 'W. Bahr el Ghazal', icon: MapPin, status: 'good', signal: 3 },
+                    { name: 'Lakes', shortName: 'Lakes', icon: MapPin, status: 'active', signal: 2 }
                   ].map((state, index) => {
                     const getStatusColor = (status) => {
                       switch (status) {
@@ -419,21 +420,24 @@ const About = () => {
                     return (
                       <motion.div
                         key={state.name}
-                        className="bg-white rounded-lg p-4 shadow-sm border border-gray-100 hover:shadow-md transition-shadow duration-200"
+                        className="bg-white rounded-lg p-3 md:p-4 shadow-sm border border-gray-100 hover:shadow-md transition-shadow duration-200"
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.4, delay: 1.0 + (index * 0.05) }}
                         viewport={{ once: true }}
                         whileHover={{ y: -2 }}
                       >
-                        <div className="flex items-center justify-between mb-3">
-                          <div className="flex items-center space-x-3">
-                            <div className="w-8 h-8 bg-primary-100 rounded-full flex items-center justify-center">
-                              <state.icon className="h-4 w-4 text-primary-600" />
+                        <div className="flex items-center justify-between mb-2 md:mb-3">
+                          <div className="flex items-center space-x-2 md:space-x-3 flex-1 min-w-0">
+                            <div className="w-6 h-6 md:w-8 md:h-8 bg-primary-100 rounded-full flex items-center justify-center flex-shrink-0">
+                              <state.icon className="h-3 w-3 md:h-4 md:w-4 text-primary-600" />
                             </div>
-                            <h4 className="text-sm font-medium text-gray-900">{state.name}</h4>
+                            <h4 className="text-xs md:text-sm font-medium text-gray-900 truncate">
+                              <span className="md:hidden">{state.shortName}</span>
+                              <span className="hidden md:inline">{state.name}</span>
+                            </h4>
                           </div>
-                          <div className="flex items-center space-x-1">
+                          <div className="flex items-center space-x-0.5 md:space-x-1 flex-shrink-0">
                             {getSignalBars(state.signal)}
                           </div>
                         </div>
@@ -441,41 +445,41 @@ const About = () => {
                           <span className={`text-xs px-2 py-1 rounded-full border ${getStatusColor(state.status)}`}>
                             {getStatusLabel(state.status)}
                           </span>
-                          <CheckCircle className="h-4 w-4 text-green-500" />
+                          <CheckCircle className="h-3 w-3 md:h-4 md:w-4 text-green-500" />
                         </div>
                       </motion.div>
                     )
                   })}
                 </div>
 
-                {/* Coverage Stats */}
+                {/* Coverage Stats - Mobile Optimized */}
                 <motion.div
-                  className="mt-8 grid grid-cols-3 gap-4 text-center"
+                  className="mt-6 md:mt-8 grid grid-cols-3 gap-2 md:gap-4 text-center"
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: 1.6 }}
                   viewport={{ once: true }}
                 >
-                  <div className="bg-white rounded-lg p-4 shadow-sm border border-gray-100">
-                    <div className="flex items-center justify-center mb-2">
-                      <Globe className="h-6 w-6 text-primary-600" />
+                  <div className="bg-white rounded-lg p-3 md:p-4 shadow-sm border border-gray-100">
+                    <div className="flex items-center justify-center mb-1 md:mb-2">
+                      <Globe className="h-4 w-4 md:h-6 md:w-6 text-primary-600" />
                     </div>
-                    <div className="text-2xl font-bold text-primary-600">10</div>
-                    <div className="text-sm text-gray-600">States Served</div>
+                    <div className="text-lg md:text-2xl font-bold text-primary-600">10</div>
+                    <div className="text-xs md:text-sm text-gray-600">States Served</div>
                   </div>
-                  <div className="bg-white rounded-lg p-4 shadow-sm border border-gray-100">
-                    <div className="flex items-center justify-center mb-2">
-                      <Signal className="h-6 w-6 text-green-600" />
+                  <div className="bg-white rounded-lg p-3 md:p-4 shadow-sm border border-gray-100">
+                    <div className="flex items-center justify-center mb-1 md:mb-2">
+                      <Signal className="h-4 w-4 md:h-6 md:w-6 text-green-600" />
                     </div>
-                    <div className="text-2xl font-bold text-green-600">100%</div>
-                    <div className="text-sm text-gray-600">Availability</div>
+                    <div className="text-lg md:text-2xl font-bold text-green-600">100%</div>
+                    <div className="text-xs md:text-sm text-gray-600">Availability</div>
                   </div>
-                  <div className="bg-white rounded-lg p-4 shadow-sm border border-gray-100">
-                    <div className="flex items-center justify-center mb-2">
-                      <Shield className="h-6 w-6 text-blue-600" />
+                  <div className="bg-white rounded-lg p-3 md:p-4 shadow-sm border border-gray-100">
+                    <div className="flex items-center justify-center mb-1 md:mb-2">
+                      <Shield className="h-4 w-4 md:h-6 md:w-6 text-blue-600" />
                     </div>
-                    <div className="text-2xl font-bold text-blue-600">24/7</div>
-                    <div className="text-sm text-gray-600">Support</div>
+                    <div className="text-lg md:text-2xl font-bold text-blue-600">24/7</div>
+                    <div className="text-xs md:text-sm text-gray-600">Support</div>
                   </div>
                 </motion.div>
               </div>
