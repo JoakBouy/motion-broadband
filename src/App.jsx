@@ -5,6 +5,7 @@ import Footer from './components/Footer'
 import ErrorBoundary from './components/ErrorBoundary'
 import ScrollToTop from './components/ScrollToTop'
 import ScrollToTopButton from './components/ScrollToTopButton'
+import PageTransition from './components/PageTransition'
 import Home from './pages/Home'
 import About from './pages/About'
 import Services from './pages/Services'
@@ -20,7 +21,7 @@ function App() {
       <div className="min-h-screen flex flex-col">
         <Navbar />
         <main className="flex-grow">
-          <AnimatePresence mode="wait">
+          <PageTransition variant="slideUp">
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/about" element={<About />} />
@@ -30,7 +31,7 @@ function App() {
               <Route path="/testimonials" element={<Testimonials />} />
               <Route path="/contact" element={<Contact />} />
             </Routes>
-          </AnimatePresence>
+          </PageTransition>
         </main>
         <Footer />
         <ScrollToTopButton />

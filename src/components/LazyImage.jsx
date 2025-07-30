@@ -1,13 +1,15 @@
 import { useState, useRef, useEffect } from 'react'
 import { motion } from 'framer-motion'
+import { ImageLoader } from './LoadingStateManager'
 
-const LazyImage = ({ 
-  src, 
-  alt, 
-  className = '', 
+const LazyImage = ({
+  src,
+  alt,
+  className = '',
   placeholder = '/images/placeholder.svg',
   fallback = '/images/placeholder.svg',
-  ...props 
+  loadingVariant = 'pulse',
+  ...props
 }) => {
   const [isLoaded, setIsLoaded] = useState(false)
   const [isInView, setIsInView] = useState(false)
@@ -46,31 +48,28 @@ const LazyImage = ({
 
   return (
     <div ref={imgRef} className={`relative overflow-hidden ${className}`} {...props}>
-      {/* Skeleton loader */}
-      {!isLoaded && (
-        <div className="absolute inset-0 skeleton rounded-lg" />
-      )}
-      
-      {/* Actual image */}
-      {isInView && (
-        <motion.img
-          src={hasError ? fallback : src}
-          alt={alt}
-          className={`w-full h-full object-cover transition-opacity duration-300 ${
-            isLoaded ? 'opacity-100' : 'opacity-0'
-          }`}
-          onLoad={handleLoad}
-          onError={handleError}
-          initial={{ opacity: 0, scale: 1.1 }}
-          animate={{ 
-            opacity: isLoaded ? 1 : 0,
-            scale: isLoaded ? 1 : 1.1
-          }}
-          transition={{ duration: 0.6, ease: 'easeOut' }}
-          loading="lazy"
-          decoding="async"
-        />
-      )}
+      <ImageLoader
+        isLoading={isInView && !isLoaded}
+        loadingType={loadingVariant}
+      >
+        {isInView && (
+          <motion.img
+            src={hasError ? fallback : src}
+            alt={alt}
+            className="w-full h-full object-cover"
+            onLoad={handleLoad}
+            onError={handleError}
+            initial={{ opacity: 0, scale: 1.05 }}
+            animate={{
+              opacity: isLoaded ? 1 : 0,
+              scale: isLoaded ? 1 : 1.05
+            }}
+            transition={{ duration: 0.6, ease: 'easeOut' }}
+            loading="lazy"
+            decoding="async"
+          />
+        )}
+      </ImageLoader>
     </div>
   )
 }
