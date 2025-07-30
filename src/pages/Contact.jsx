@@ -78,9 +78,40 @@ const Contact = () => {
       const templateId = process.env.REACT_APP_EMAILJS_TEMPLATE_ID
       const publicKey = process.env.REACT_APP_EMAILJS_PUBLIC_KEY
 
-      // Check if EmailJS is configured
-      if (!serviceId || !templateId || !publicKey) {
-        // Fallback to mailto if EmailJS is not configured
+      // Prepare template parameters
+      const templateParams = {
+        from_name: formData.name,
+        from_email: formData.email,
+        phone: formData.phone,
+        subject: formData.subject,
+        message: formData.message,
+        to_email: 'sales@motionbroadbandltd.com'
+      }
+
+      // Send email using EmailJS
+      await emailjs.send(serviceId, templateId, templateParams, publicKey)
+
+      console.log('Email sent successfully via EmailJS')
+      setIsSubmitting(false)
+      setSubmitSuccess(true)
+
+      // Reset form
+      setFormData({
+        name: '',
+        email: '',
+        phone: '',
+        subject: '',
+        message: ''
+      })
+
+      // Hide success message after 5 seconds
+      setTimeout(() => setSubmitSuccess(false), 5000)
+
+    } catch (error) {
+      console.error('EmailJS sending failed:', error)
+
+      // Fallback to mailto if EmailJS fails
+      try {
         const mailtoLink = `mailto:sales@motionbroadbandltd.com?subject=${encodeURIComponent(formData.subject)}&body=${encodeURIComponent(
           `Name: ${formData.name}\nEmail: ${formData.email}\nPhone: ${formData.phone}\n\nMessage:\n${formData.message}`
         )}`
@@ -99,44 +130,15 @@ const Contact = () => {
         })
 
         setTimeout(() => setSubmitSuccess(false), 5000)
-        return
+
+      } catch (mailtoError) {
+        console.error('Mailto fallback also failed:', mailtoError)
+        setIsSubmitting(false)
+        setSubmitError(true)
+
+        // Hide error message after 5 seconds
+        setTimeout(() => setSubmitError(false), 5000)
       }
-
-      // Prepare template parameters
-      const templateParams = {
-        from_name: formData.name,
-        from_email: formData.email,
-        phone: formData.phone,
-        subject: formData.subject,
-        message: formData.message,
-        to_email: 'sales@motionbroadbandltd.com'
-      }
-
-      // Send email using EmailJS
-      await emailjs.send(serviceId, templateId, templateParams, publicKey)
-
-      setIsSubmitting(false)
-      setSubmitSuccess(true)
-
-      // Reset form
-      setFormData({
-        name: '',
-        email: '',
-        phone: '',
-        subject: '',
-        message: ''
-      })
-
-      // Hide success message after 5 seconds
-      setTimeout(() => setSubmitSuccess(false), 5000)
-
-    } catch (error) {
-      console.error('Email sending failed:', error)
-      setIsSubmitting(false)
-      setSubmitError(true)
-
-      // Hide error message after 5 seconds
-      setTimeout(() => setSubmitError(false), 5000)
     }
   }
 
@@ -252,7 +254,7 @@ const Contact = () => {
                 <div className="text-center py-8">
                   <AlertCircle className="h-16 w-16 text-red-500 mx-auto mb-4" />
                   <h3 className="text-2xl font-semibold text-gray-900 mb-2">Message Failed to Send</h3>
-                  <p className="text-gray-700 mb-4">Sorry, there was an error sending your message. Please try again or contact us directly.</p>
+                  <p className="text-gray-700 mb-4">Sorry, there was an error with both our email service and the backup method. Please contact us directly at sales@motionbroadbandltd.com or try again.</p>
                   <button
                     onClick={() => setSubmitError(false)}
                     className="btn-primary"

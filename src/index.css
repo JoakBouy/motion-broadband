@@ -153,4 +153,22 @@
       transition: none !important;
     }
   }
+
+  /* Cookie Consent Styles */
+  .cookie-banner {
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+
+  .cookie-toggle {
+    transition: all 0.3s ease;
+  }
+
+  .cookie-toggle:checked {
+    background-color: #3b82f6;
+  }
+
+  .cookie-toggle:checked::before {
+    transform: translateX(100%);
+  }
 }
