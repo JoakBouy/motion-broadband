@@ -9,28 +9,28 @@ const Home = () => {
       title: 'Nationwide Coverage',
       description: 'Complete coverage across all 10 states of South Sudan, from Juba to remote towns like Akobo, Bentiu, and Pibor. Our satellite infrastructure delivers high-speed internet to previously unreachable areas.',
       color: 'from-blue-500 to-cyan-500',
-      image: '/images/satellite/south-sudan-coverage-map.webp'
+      image: '/images/satellite/South_Sudan-32_States.png'
     },
     {
       icon: Shield,
       title: 'Affordable Pricing',
       description: 'Competitive, transparent pricing designed for South Sudan\'s market. Flexible plans for different budgets with no hidden costs, making high-speed internet accessible to everyone.',
       color: 'from-green-500 to-emerald-500',
-      image: '/images/satellite/juba-urban-connectivity.webp'
+      image: '/images/satellite/affordable.avif'
     },
     {
       icon: Wifi,
       title: 'Reliable Support',
       description: '24/7 technical support from our dedicated team. Whether it\'s installation, connectivity issues, or service questions, our experienced technicians ensure seamless internet experience.',
       color: 'from-purple-500 to-pink-500',
-      image: '/images/satellite/malakal-support-center.webp'
+      image: '/images/satellite/customer-support-team.webp'
     },
     {
       icon: Zap,
       title: 'Cutting-Edge Technology',
       description: 'Powered by Starlink, SpaceX\'s advanced satellite internet system. Revolutionary technology delivering unprecedented speeds and reliability, even in challenging environments.',
       color: 'from-orange-500 to-red-500',
-      image: '/images/satellite/starlink-network-visualization.webp'
+      image: '/images/satellite/connectivity.webp'
     }
   ]
 
@@ -47,7 +47,7 @@ const Home = () => {
         'Social media and communication support',
         'Smart home device connectivity'
       ],
-      image: '/images/satellite/residential-installations-juba.webp'
+      image: '/images/satellite/home-use.webp'
     },
     {
       icon: Building,
@@ -61,7 +61,7 @@ const Home = () => {
         'Backup connectivity for business continuity',
         'Network management and monitoring'
       ],
-      image: '/images/satellite/ngo-office-compound-malakal.webp'
+      image: '/images/satellite/ngo-use.webp'
     },
     {
       icon: Store,
@@ -75,7 +75,7 @@ const Home = () => {
         'Advanced security and content filtering',
         'Technical support and maintenance'
       ],
-      image: '/images/satellite/hotel-business-wau.webp'
+      image: '/images/satellite/vouchers.webp'
     }
   ]
 

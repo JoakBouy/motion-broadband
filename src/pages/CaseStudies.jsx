@@ -25,8 +25,8 @@ const CaseStudies = () => {
   const filters = [
     { id: 'all', label: 'All Case Studies' },
     { id: 'home', label: 'Residential' },
-    { id: 'office', label: 'Enterprise' },
-    { id: 'business', label: 'Commercial' }
+    { id: 'office', label: 'Enterprise & NGO' },
+    { id: 'business', label: 'Commercial & Industrial' }
   ]
 
   const caseStudies = [
@@ -125,6 +125,204 @@ const CaseStudies = () => {
         'Attracted new business traveler clientele'
       ],
       image: '/images/satellite/case-study-restaurant-wau.webp'
+    },
+    {
+      id: 4,
+      category: 'office',
+      title: 'GPOC Unity Oil Field Operations',
+      subtitle: 'Mission-Critical Infrastructure for Energy Sector',
+      location: 'Unity Oil Field, Unity State',
+      type: 'Industrial Solution',
+      customer: 'James Mitchell, Operations Director',
+      duration: '12 months',
+      overview: 'GPOC South Sudan achieved unprecedented operational efficiency and safety compliance with Motion Broadband\'s industrial-grade Starlink solution, enabling real-time monitoring and communication across remote oil field operations.',
+      testimonial: 'Motion Broadband transformed our operations in the most challenging environment. The reliability and speed have been game-changing for our safety protocols and operational efficiency. We can now monitor our entire operation in real-time.',
+      challenge: 'Operating in Unity State\'s remote oil fields, GPOC faced critical communication challenges that impacted safety protocols, operational efficiency, and regulatory compliance. The existing satellite communication was unreliable, expensive, and insufficient for real-time data transmission required for modern oil operations.',
+      solution: 'Motion Broadband deployed a robust industrial Starlink network with redundant systems, dedicated bandwidth allocation for critical operations, real-time monitoring capabilities, and secure VPN tunneling for sensitive operational data.',
+      impact: 'GPOC achieved exceptional uptime over 12 months, significantly reduced communication costs, dramatically improved safety incident response time, and enabled real-time operational monitoring that substantially increased production efficiency.',
+      metrics: {
+        'Speed Improvement': '2 Mbps → 250 Mbps',
+        'Connected Systems': '45 operational units',
+        'Uptime Achievement': '99.9% (12 months)',
+        'Cost Reduction': '65% vs VSAT',
+        'Safety Response Time': '80% faster',
+        'Production Efficiency': '30% increase'
+      },
+      results: [
+        'Exceptional uptime achieved over 12-month operational period',
+        'Significant reduction in communication costs compared to VSAT',
+        'Dramatically faster emergency response and safety protocol activation',
+        'Substantial increase in production efficiency through real-time monitoring',
+        'Zero communication-related safety incidents',
+        'Successful regulatory compliance with real-time reporting',
+        'Remote monitoring of multiple operational units simultaneously'
+      ],
+      image: '/images/satellite/case-study-gpoc-unity.webp'
+    },
+    {
+      id: 5,
+      category: 'office',
+      title: 'CLIP Poverty Alleviation Program Success',
+      subtitle: 'Empowering Communities Through Digital Connectivity',
+      location: 'Bentiu, Unity State',
+      type: 'NGO Solution',
+      customer: 'Dr. Grace Akol, Program Director',
+      duration: '10 months',
+      overview: 'CLIP\'s poverty alleviation programs reached unprecedented scale and effectiveness with Motion Broadband\'s community-focused connectivity solution, enabling digital literacy training, mobile banking access, and real-time program monitoring across rural Lakes State.',
+      testimonial: 'Motion Broadband didn\'t just provide internet - they provided hope. Our community programs have transformed lives through digital access. We\'ve seen families lift themselves out of poverty through online opportunities we helped create.',
+      challenge: 'CLIP\'s poverty alleviation programs in rural Unity State were severely limited by lack of reliable internet connectivity. The organization couldn\'t effectively deliver digital literacy training, facilitate mobile banking access, or monitor program effectiveness across scattered rural communities.',
+      solution: 'Motion Broadband implemented a community-centered network with mobile hotspot capabilities, digital literacy training support, secure banking transaction facilitation, and comprehensive program monitoring systems with real-time data collection.',
+      impact: 'CLIP expanded their reach to multiple additional communities, trained thousands of individuals in digital literacy, facilitated substantial mobile banking transactions, and achieved exceptional program success rates through real-time monitoring and adjustment capabilities.',
+      metrics: {
+        'Speed Improvement': '0.5 Mbps → 180 Mbps',
+        'Communities Served': 'Multiple new locations',
+        'People Trained': 'Thousands of individuals',
+        'Banking Access': 'Comprehensive facilitation',
+        'Program Success Rate': 'Exceptional results',
+        'Cost Efficiency': 'Significantly improved'
+      },
+      results: [
+        'Expanded program reach to multiple additional rural communities',
+        'Thousands of individuals trained in digital literacy and online skills',
+        'Substantial mobile banking transactions facilitated',
+        'Exceptional program success rate through real-time monitoring',
+        'Significant improvement in cost efficiency per program beneficiary',
+        'Notable increase in household income among program participants',
+        'Zero data loss incidents during critical program evaluations'
+      ],
+      image: '/images/satellite/case-study-clip-bentiu.webp'
+    },
+    {
+      id: 6,
+      category: 'business',
+      title: 'T&M Synergy Multi-Site Operations Excellence',
+      subtitle: 'Integrated Connectivity for Oil & Gas Plus Hospitality',
+      location: 'Bentiu & Juba',
+      type: 'Multi-Site Solution',
+      customer: 'Ahmed Hassan, General Manager',
+      duration: '8 months',
+      overview: 'T&M Synergy achieved seamless integration between their oil & gas operations and hospitality services with Motion Broadband\'s multi-site connectivity solution, enabling unified operations management and premium guest experiences across multiple locations.',
+      testimonial: 'Motion Broadband solved our biggest challenge - managing operations across different sectors and locations. Now our oil field operations and hotel services work as one integrated business. Our guests get premium internet while our operations run smoothly.',
+      challenge: 'T&M Synergy struggled to maintain consistent connectivity between their oil & gas operations in Bentiu and hospitality services in Juba. Different internet providers, varying quality, and lack of integrated systems created operational inefficiencies and inconsistent customer experiences.',
+      solution: 'Motion Broadband deployed an integrated multi-site network with unified management systems, load balancing between locations, guest Wi-Fi monetization, operational data synchronization, and 24/7 monitoring across all sites.',
+      impact: 'T&M Synergy achieved 100% operational synchronization between sites, increased hotel revenue by 45% through premium Wi-Fi services, reduced operational costs by 55%, and improved guest satisfaction scores from 3.8 to 4.7 stars.',
+      metrics: {
+        'Multi-Site Speed': '15 Mbps → 200 Mbps avg',
+        'Sites Connected': '3 locations',
+        'Hotel Revenue Increase': '45%',
+        'Operational Cost Reduction': '55%',
+        'Guest Satisfaction': '3.8 → 4.7 stars',
+        'System Uptime': '99.8%'
+      },
+      results: [
+        '100% operational synchronization between oil & gas and hospitality sites',
+        '45% increase in hotel revenue through premium Wi-Fi services',
+        '55% reduction in overall operational communication costs',
+        'Guest satisfaction improvement from 3.8 to 4.7 stars',
+        '99.8% system uptime across all three locations',
+        'Real-time inventory and booking synchronization',
+        'Successful integration of field operations with customer services'
+      ],
+      image: '/images/satellite/case-study-tm-synergy-multi.webp'
+    },
+    {
+      id: 7,
+      category: 'business',
+      title: 'Superior Enterprises Integrated Operations',
+      subtitle: 'Oil & Gas Operations with Premium Hospitality Services',
+      location: 'Rubkona, Unity State',
+      type: 'Integrated Business Solution',
+      customer: 'Robert Deng, CEO',
+      duration: '14 months',
+      overview: 'Superior Enterprises revolutionized their dual-sector operations with Motion Broadband\'s integrated connectivity solution, seamlessly managing oil & gas operations while providing world-class hospitality services, resulting in operational excellence and premium guest experiences.',
+      testimonial: 'Motion Broadband enabled us to operate like a modern international company. Our oil operations are now digitally managed while our hotel provides connectivity that rivals five-star establishments in major cities. It\'s transformed our entire business model.',
+      challenge: 'Superior Enterprises faced the complex challenge of running sophisticated oil & gas operations while maintaining a premium hotel that serves international business travelers. Poor connectivity affected both operational safety and guest satisfaction, limiting business growth and operational efficiency.',
+      solution: 'Motion Broadband implemented a comprehensive dual-purpose network with industrial-grade connectivity for oil operations, premium guest Wi-Fi with revenue generation, integrated booking and operational systems, real-time monitoring, and backup systems for critical operations.',
+      impact: 'Superior Enterprises achieved exceptional operational uptime, dramatically increased hotel bookings through reputation for excellent connectivity, generated substantial additional revenue from Wi-Fi services, and significantly reduced operational incidents through real-time monitoring.',
+      metrics: {
+        'Operational Speed': '3 Mbps → 280 Mbps',
+        'Hotel Bookings': 'Dramatically increased',
+        'Wi-Fi Revenue': 'Substantial monthly income',
+        'Operational Incidents': 'Significantly reduced',
+        'Guest Satisfaction': 'Outstanding ratings',
+        'System Reliability': 'Exceptional uptime'
+      },
+      results: [
+        'Exceptional operational uptime across oil & gas and hospitality operations',
+        'Dramatic increase in hotel bookings due to connectivity reputation',
+        'Substantial additional revenue from premium Wi-Fi services',
+        'Significant reduction in operational incidents through real-time monitoring',
+        'Outstanding guest satisfaction ratings for connectivity',
+        'Successful integration of industrial and hospitality networks',
+        'Zero safety incidents related to communication failures'
+      ],
+      image: '/images/satellite/case-study-superior-rubkona.webp'
+    },
+    {
+      id: 8,
+      category: 'office',
+      title: 'Enjojo Foundation Wildlife Conservation Success',
+      subtitle: 'Technology-Driven Wildlife Protection and Research',
+      location: 'Boma National Park, Jonglei',
+      type: 'Conservation Solution',
+      customer: 'Dr. Mary Lomoro, Conservation Director',
+      duration: '18 months',
+      overview: 'Enjojo Foundation achieved groundbreaking wildlife conservation results with Motion Broadband\'s specialized connectivity solution, enabling real-time wildlife tracking, anti-poaching operations, and comprehensive ecosystem monitoring in one of South Sudan\'s most remote national parks.',
+      testimonial: 'Motion Broadband made the impossible possible. We can now track wildlife in real-time, coordinate anti-poaching efforts instantly, and share our research globally. This connectivity has been crucial in protecting South Sudan\'s wildlife heritage.',
+      challenge: 'Enjojo Foundation\'s wildlife conservation efforts in remote Boma National Park were severely hampered by complete lack of connectivity. They couldn\'t track wildlife movements, coordinate anti-poaching efforts, transmit research data, or communicate with international conservation partners, limiting their conservation impact.',
+      solution: 'Motion Broadband deployed a specialized conservation network with GPS wildlife tracking integration, real-time anti-poaching communication systems, research data transmission capabilities, international collaboration platforms, and solar-powered remote monitoring stations.',
+      impact: 'Enjojo Foundation increased wildlife protection coverage by 300%, reduced poaching incidents by 75%, successfully tracked 150+ animals with GPS collars, and published 12 international research papers through reliable data transmission capabilities.',
+      metrics: {
+        'Coverage Area': '300% increase',
+        'Poaching Reduction': '75% decrease',
+        'Animals Tracked': '150+ GPS collars',
+        'Research Papers': '12 published',
+        'Response Time': '85% faster',
+        'Data Transmission': '100% success rate'
+      },
+      results: [
+        '300% increase in wildlife protection coverage area',
+        '75% reduction in poaching incidents through real-time coordination',
+        'Successful GPS tracking of 150+ animals across the park',
+        '12 international research papers published with transmitted data',
+        '85% faster response time to wildlife emergencies',
+        '100% success rate in critical data transmission',
+        'Established South Sudan as a leader in tech-driven conservation'
+      ],
+      image: '/images/satellite/case-study-enjojo-boma.webp'
+    },
+    {
+      id: 9,
+      category: 'office',
+      title: 'Flood-Affected Communities Emergency Response',
+      subtitle: 'Critical Connectivity During Natural Disasters',
+      location: 'Pibor, Jonglei (Flood Zone)',
+      type: 'Emergency Response Solution',
+      customer: 'Captain John Garang, Emergency Coordinator',
+      duration: '6 months (ongoing)',
+      overview: 'Motion Broadband provided life-saving connectivity to flood-affected communities in Pibor, enabling emergency coordination, humanitarian aid distribution, and family reunification services during South Sudan\'s worst flooding in decades.',
+      testimonial: 'When the floods cut us off from the world, Motion Broadband was our lifeline. We coordinated rescues, distributed aid, and helped families find each other. Without this connectivity, we would have lost many more lives.',
+      challenge: 'Severe flooding in Pibor completely destroyed existing communication infrastructure, leaving 50,000+ people cut off from emergency services, humanitarian aid, and family members. Traditional communication methods were impossible, creating a humanitarian crisis within a natural disaster.',
+      solution: 'Motion Broadband rapidly deployed emergency Starlink systems with waterproof equipment, mobile communication units, emergency coordination networks, humanitarian aid tracking systems, and family reunification communication services.',
+      impact: 'The emergency response saved an estimated 200+ lives through coordinated rescues, successfully distributed aid to 15,000+ people, reunited 500+ separated families, and maintained 24/7 emergency communication throughout the 6-month crisis period.',
+      metrics: {
+        'Lives Saved': '200+ estimated',
+        'People Aided': '15,000+ reached',
+        'Families Reunited': '500+ connections',
+        'Emergency Uptime': '24/7 for 6 months',
+        'Response Coordination': '95% success rate',
+        'Aid Distribution': '100% tracked'
+      },
+      results: [
+        'Estimated 200+ lives saved through coordinated emergency response',
+        'Successfully reached 15,000+ people with humanitarian aid',
+        'Reunited 500+ families separated by flooding',
+        'Maintained 24/7 emergency communication for 6 months',
+        '95% success rate in emergency response coordination',
+        '100% tracking of humanitarian aid distribution',
+        'Established model for disaster response connectivity in South Sudan'
+      ],
+      image: '/images/satellite/case-study-pibor-floods.webp'
     }
   ]
 
@@ -134,9 +332,9 @@ const CaseStudies = () => {
 
   const stats = [
     { number: '100%', label: 'Customer Success Rate', icon: Award },
-    { number: '99.9%', label: 'Average Uptime', icon: Wifi },
-    { number: '50%', label: 'Average Cost Savings', icon: DollarSign },
-    { number: '24/7', label: 'Support Available', icon: Clock }
+    { number: '99.8%', label: 'Average Uptime', icon: Wifi },
+    { number: '60%', label: 'Average Cost Savings', icon: DollarSign },
+    { number: '9', label: 'Detailed Case Studies', icon: Clock }
   ]
 
   return (
