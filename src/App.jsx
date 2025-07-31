@@ -7,6 +7,7 @@ import ErrorBoundary from './components/ErrorBoundary'
 import ScrollToTop from './components/ScrollToTop'
 import ScrollToTopButton from './components/ScrollToTopButton'
 import PageTransition from './components/PageTransition'
+import StructuredData from './components/StructuredData'
 import Home from './pages/Home'
 import About from './pages/About'
 import Services from './pages/Services'
@@ -18,6 +19,7 @@ import TermsOfService from './pages/TermsOfService'
 function App() {
   return (
     <ErrorBoundary>
+      <StructuredData />
       <ScrollToTop />
       <div className="min-h-screen flex flex-col">
         <Navbar />

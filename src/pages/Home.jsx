@@ -9,14 +9,14 @@ const Home = () => {
       title: 'Nationwide Coverage',
       description: 'Complete coverage across all 10 states of South Sudan, from Juba to remote towns like Akobo, Bentiu, and Pibor. Our satellite infrastructure delivers high-speed internet to previously unreachable areas.',
       color: 'from-blue-500 to-cyan-500',
-      image: '/images/satellite/South_Sudan-32_States.png'
+      image: '/images/satellite/South_Sudan-32_States.jpeg'
     },
     {
       icon: Shield,
       title: 'Affordable Pricing',
       description: 'Competitive, transparent pricing designed for South Sudan\'s market. Flexible plans for different budgets with no hidden costs, making high-speed internet accessible to everyone.',
       color: 'from-green-500 to-emerald-500',
-      image: '/images/satellite/affordable.avif'
+      image: '/images/satellite/affordable.png'
     },
     {
       icon: Wifi,

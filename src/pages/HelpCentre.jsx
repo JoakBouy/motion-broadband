@@ -25,7 +25,7 @@ const HelpCentre = () => {
 
   const categories = [
     { id: 'all', name: 'All Topics', icon: HelpCircle },
-    { id: 'setup', name: 'Account Setup', icon: Users },
+    { id: 'setup', name: 'Service Setup', icon: Users },
     { id: 'connectivity', name: 'Connectivity', icon: Wifi },
     { id: 'billing', name: 'Billing', icon: CreditCard },
     { id: 'technical', name: 'Technical Support', icon: Settings },
@@ -42,8 +42,8 @@ const HelpCentre = () => {
     {
       id: 2,
       category: 'setup',
-      question: 'What documents do I need to open an account?',
-      answer: 'To open a Motion Broadband account, you need: Valid South Sudanese ID or passport, proof of address (utility bill or rental agreement), and contact information. For business accounts, additional business registration documents may be required.'
+      question: 'What information do I need to get started with Motion Broadband?',
+      answer: 'To get started with Motion Broadband service, we need: Valid South Sudanese ID or passport, proof of address (utility bill or rental agreement), and contact information. For business services, additional business registration documents may be required. We handle all account setup and management for you.'
     },
     {
       id: 3,
@@ -107,7 +107,7 @@ const HelpCentre = () => {
       icon: Mail,
       title: 'Email Support',
       description: 'Send us your questions',
-      contact: 'support@motionbroadband.ss',
+      contact: 'support@motionbroadbandltd.com',
       availability: 'Response within 24 hours'
     },
     {
@@ -344,7 +344,7 @@ const HelpCentre = () => {
             {[
               { title: 'Service Status', description: 'Check current service status', icon: Wifi },
               { title: 'Coverage Map', description: 'View our coverage areas', icon: MapPin },
-              { title: 'Account Portal', description: 'Manage your account', icon: Users },
+              { title: 'Service Portal', description: 'View your service details', icon: Users },
               { title: 'Terms of Service', description: 'Read our terms', icon: Shield }
             ].map((link, index) => (
               <motion.div

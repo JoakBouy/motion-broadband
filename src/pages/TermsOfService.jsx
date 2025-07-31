@@ -247,9 +247,9 @@ const TermsOfService = () => {
               <div className="space-y-2 text-gray-700">
                 <p><strong>Motion Broadband</strong></p>
                 <p>Juba, Republic of South Sudan</p>
-                <p>Email: legal@motionbroadband.ss</p>
+                <p>Email: legal@motionbroadbandltd.com</p>
                 <p>Phone: +211 922 383 300</p>
-                <p>Website: www.motionbroadband.ss</p>
+                <p>Website: www.motionbroadbandltd.com</p>
               </div>
               <div className="mt-6 pt-6 border-t border-primary-200">
                 <p className="text-sm text-gray-600">
