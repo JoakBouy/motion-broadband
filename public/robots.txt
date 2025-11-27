@@ -1,41 +1,19 @@
-# Motion Broadband - Robots.txt
-# Website: https://motionbroadbandltd.com
-# Last updated: 2025-07-31
-
-# Allow all search engines to crawl the website
 User-agent: *
 Allow: /
 
-# Disallow crawling of admin or private areas (if any exist in the future)
+# Sitemaps
+Sitemap: https://motionbroadbandltd.com/sitemap.xml
+
+# Disallow admin or private areas (if any)
 Disallow: /admin/
 Disallow: /private/
-Disallow: /.env
-Disallow: /api/
 
-# Allow important pages for better indexing
-Allow: /
-Allow: /about
-Allow: /services
-Allow: /contact
-Allow: /help
-Allow: /privacy
-Allow: /terms
-
-# Sitemap location (when available)
-# Sitemap: https://motionbroadbandltd.com/sitemap.xml
-
-# Crawl delay (optional - helps prevent server overload)
-Crawl-delay: 1
-
-# Specific rules for major search engines
+# Allow all major search engines
 User-agent: Googlebot
 Allow: /
-Crawl-delay: 1
 
 User-agent: Bingbot
 Allow: /
-Crawl-delay: 1
 
 User-agent: Slurp
 Allow: /
-Crawl-delay: 1

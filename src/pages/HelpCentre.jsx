@@ -1,12 +1,12 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { 
-  Search, 
-  ChevronDown, 
-  ChevronUp, 
-  Phone, 
-  Mail, 
-  MessageCircle, 
+import {
+  Search,
+  ChevronDown,
+  ChevronUp,
+  Phone,
+  Mail,
+  MessageCircle,
   Clock,
   Wifi,
   CreditCard,
@@ -122,7 +122,7 @@ const HelpCentre = () => {
   const filteredFAQs = faqs.filter(faq => {
     const matchesCategory = activeCategory === 'all' || faq.category === activeCategory
     const matchesSearch = faq.question.toLowerCase().includes(searchQuery.toLowerCase()) ||
-                         faq.answer.toLowerCase().includes(searchQuery.toLowerCase())
+      faq.answer.toLowerCase().includes(searchQuery.toLowerCase())
     return matchesCategory && matchesSearch
   })
 
@@ -140,23 +140,26 @@ const HelpCentre = () => {
   }
 
   return (
-    <div className="min-h-screen pt-20">
+    <div className="min-h-screen bg-dark-950 pt-20 overflow-hidden">
       {/* Hero Section */}
-      <section className="relative py-16 bg-gradient-to-br from-primary-50 to-secondary-50">
-        <div className="container-custom">
+      <section className="relative py-16 hero-gradient">
+        {/* Background Elements */}
+        <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2260%22%20height%3D%2260%22%20viewBox%3D%220%200%2060%2060%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20fill%3D%22%23ffffff%22%20fill-opacity%3D%220.05%22%3E%3Ccircle%20cx%3D%2230%22%20cy%3D%2230%22%20r%3D%222%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-20"></div>
+
+        <div className="container-custom relative z-10">
           <motion.div
             className="text-center max-w-4xl mx-auto"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-gray-900 mb-6">
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-white mb-6">
               How can we <span className="text-gradient">help you?</span>
             </h1>
-            <p className="text-lg md:text-xl text-gray-700 mb-8">
+            <p className="text-lg md:text-xl text-gray-300 mb-8">
               Find answers to common questions or get in touch with our support team
             </p>
-            
+
             {/* Search Bar */}
             <div className="relative max-w-2xl mx-auto">
               <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400" />
@@ -165,7 +168,7 @@ const HelpCentre = () => {
                 placeholder="Search for help articles..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full pl-12 pr-4 py-4 text-lg border border-gray-200 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-transparent shadow-lg"
+                className="w-full pl-12 pr-4 py-4 text-lg bg-white/10 border border-white/20 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-transparent text-white placeholder-gray-400 backdrop-blur-sm shadow-lg transition-all"
               />
             </div>
           </motion.div>
@@ -173,7 +176,8 @@ const HelpCentre = () => {
       </section>
 
       {/* Categories */}
-      <section className="section-padding bg-white">
+      <section className="section-padding bg-dark-900 relative">
+        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
         <div className="container-custom">
           <motion.div
             className="flex flex-wrap justify-center gap-4 mb-12"
@@ -186,11 +190,10 @@ const HelpCentre = () => {
               <motion.button
                 key={category.id}
                 onClick={() => setActiveCategory(category.id)}
-                className={`flex items-center space-x-2 px-6 py-3 rounded-full border transition-all duration-300 ${
-                  activeCategory === category.id
+                className={`flex items-center space-x-2 px-6 py-3 rounded-full border transition-all duration-300 ${activeCategory === category.id
                     ? 'bg-primary-500 text-white border-primary-500 shadow-lg'
-                    : 'bg-white text-gray-700 border-gray-200 hover:border-primary-300 hover:bg-primary-50'
-                }`}
+                    : 'bg-white/5 text-gray-300 border-white/10 hover:border-primary-500/50 hover:bg-white/10'
+                  }`}
                 variants={itemVariants}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
@@ -209,30 +212,30 @@ const HelpCentre = () => {
             whileInView="visible"
             viewport={{ once: true }}
           >
-            <h2 className="text-2xl md:text-3xl font-display font-bold text-gray-900 mb-8 text-center">
+            <h2 className="text-2xl md:text-3xl font-display font-bold text-white mb-8 text-center">
               Frequently Asked Questions
             </h2>
-            
+
             <div className="space-y-4">
               {filteredFAQs.map((faq, index) => (
                 <motion.div
                   key={faq.id}
-                  className="bg-white border border-gray-200 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300"
+                  className="glass-panel border border-white/10 rounded-xl shadow-sm hover:border-primary-500/30 transition-all duration-300"
                   variants={itemVariants}
                   transition={{ delay: index * 0.1 }}
                 >
                   <button
                     onClick={() => setExpandedFAQ(expandedFAQ === faq.id ? null : faq.id)}
-                    className="w-full px-6 py-4 text-left flex items-center justify-between hover:bg-gray-50 rounded-xl transition-colors duration-200"
+                    className="w-full px-6 py-4 text-left flex items-center justify-between hover:bg-white/5 rounded-xl transition-colors duration-200"
                   >
-                    <h3 className="text-lg font-semibold text-gray-900 pr-4">{faq.question}</h3>
+                    <h3 className="text-lg font-semibold text-white pr-4">{faq.question}</h3>
                     {expandedFAQ === faq.id ? (
-                      <ChevronUp className="h-5 w-5 text-primary-500 flex-shrink-0" />
+                      <ChevronUp className="h-5 w-5 text-primary-400 flex-shrink-0" />
                     ) : (
                       <ChevronDown className="h-5 w-5 text-gray-400 flex-shrink-0" />
                     )}
                   </button>
-                  
+
                   <AnimatePresence>
                     {expandedFAQ === faq.id && (
                       <motion.div
@@ -243,7 +246,7 @@ const HelpCentre = () => {
                         className="overflow-hidden"
                       >
                         <div className="px-6 pb-4">
-                          <p className="text-gray-700 leading-relaxed">{faq.answer}</p>
+                          <p className="text-gray-300 leading-relaxed">{faq.answer}</p>
                         </div>
                       </motion.div>
                     )}
@@ -259,9 +262,9 @@ const HelpCentre = () => {
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.5 }}
               >
-                <HelpCircle className="h-16 w-16 text-gray-300 mx-auto mb-4" />
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">No results found</h3>
-                <p className="text-gray-600">Try adjusting your search or browse different categories</p>
+                <HelpCircle className="h-16 w-16 text-gray-600 mx-auto mb-4" />
+                <h3 className="text-xl font-semibold text-white mb-2">No results found</h3>
+                <p className="text-gray-400">Try adjusting your search or browse different categories</p>
               </motion.div>
             )}
           </motion.div>
@@ -269,7 +272,7 @@ const HelpCentre = () => {
       </section>
 
       {/* Support Channels */}
-      <section className="section-padding bg-gradient-to-br from-gray-50 to-white">
+      <section className="section-padding bg-dark-950 relative">
         <div className="container-custom">
           <motion.div
             className="text-center mb-12"
@@ -278,10 +281,10 @@ const HelpCentre = () => {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-2xl md:text-3xl font-display font-bold text-gray-900 mb-4">
+            <h2 className="text-2xl md:text-3xl font-display font-bold text-white mb-4">
               Still need help?
             </h2>
-            <p className="text-lg text-gray-700">
+            <p className="text-lg text-gray-400">
               Our support team is here to assist you 24/7
             </p>
           </motion.div>
@@ -296,16 +299,16 @@ const HelpCentre = () => {
             {supportChannels.map((channel, index) => (
               <motion.div
                 key={index}
-                className="card p-6 text-center hover:shadow-xl transition-all duration-300"
+                className="glass-panel p-6 text-center hover:border-primary-500/50 transition-all duration-300 border border-white/10 rounded-2xl"
                 variants={itemVariants}
                 whileHover={{ y: -5 }}
               >
-                <div className="w-16 h-16 mx-auto mb-4 bg-gradient-to-r from-primary-500 to-secondary-500 rounded-2xl flex items-center justify-center">
+                <div className="w-16 h-16 mx-auto mb-4 bg-gradient-to-r from-primary-500 to-secondary-500 rounded-2xl flex items-center justify-center shadow-lg">
                   <channel.icon className="h-8 w-8 text-white" />
                 </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">{channel.title}</h3>
-                <p className="text-gray-600 mb-3">{channel.description}</p>
-                <p className="text-primary-600 font-semibold mb-2">{channel.contact}</p>
+                <h3 className="text-xl font-semibold text-white mb-2">{channel.title}</h3>
+                <p className="text-gray-400 mb-3">{channel.description}</p>
+                <p className="text-primary-400 font-semibold mb-2">{channel.contact}</p>
                 <div className="flex items-center justify-center text-sm text-gray-500">
                   <Clock className="h-4 w-4 mr-1" />
                   {channel.availability}
@@ -317,7 +320,8 @@ const HelpCentre = () => {
       </section>
 
       {/* Quick Links */}
-      <section className="section-padding bg-white">
+      <section className="section-padding bg-dark-900 relative">
+        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
         <div className="container-custom">
           <motion.div
             className="text-center mb-12"
@@ -326,10 +330,10 @@ const HelpCentre = () => {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-2xl md:text-3xl font-display font-bold text-gray-900 mb-4">
+            <h2 className="text-2xl md:text-3xl font-display font-bold text-white mb-4">
               Quick Links
             </h2>
-            <p className="text-lg text-gray-700">
+            <p className="text-lg text-gray-400">
               Access important resources and information
             </p>
           </motion.div>
@@ -349,14 +353,14 @@ const HelpCentre = () => {
             ].map((link, index) => (
               <motion.div
                 key={index}
-                className="card p-6 text-center hover:shadow-lg transition-all duration-300 cursor-pointer"
+                className="glass-panel p-6 text-center hover:border-primary-500/50 transition-all duration-300 cursor-pointer border border-white/10 rounded-2xl"
                 variants={itemVariants}
                 whileHover={{ y: -3 }}
               >
-                <link.icon className="h-12 w-12 text-primary-500 mx-auto mb-4" />
-                <h3 className="text-lg font-semibold text-gray-900 mb-2">{link.title}</h3>
-                <p className="text-gray-600 text-sm mb-3">{link.description}</p>
-                <ExternalLink className="h-4 w-4 text-primary-500 mx-auto" />
+                <link.icon className="h-12 w-12 text-primary-400 mx-auto mb-4" />
+                <h3 className="text-lg font-semibold text-white mb-2">{link.title}</h3>
+                <p className="text-gray-400 text-sm mb-3">{link.description}</p>
+                <ExternalLink className="h-4 w-4 text-primary-400 mx-auto" />
               </motion.div>
             ))}
           </motion.div>

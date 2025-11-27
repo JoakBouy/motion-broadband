@@ -1,18 +1,12 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { 
-  MapPin, 
-  Users, 
-  Building, 
-  Home, 
-  Globe, 
-  Star, 
-  ArrowRight, 
-  ArrowLeft,
+import {
+  MapPin,
+  Globe,
+  ArrowRight,
   Wifi,
   CheckCircle,
   Award,
-  TrendingUp,
   DollarSign,
   Clock,
   X,
@@ -332,8 +326,8 @@ const Portfolio = () => {
     }
   ]
 
-  const filteredCases = activeFilter === 'all' 
-    ? caseStudies 
+  const filteredCases = activeFilter === 'all'
+    ? caseStudies
     : caseStudies.filter(caseStudy => caseStudy.category === activeFilter)
 
   const stats = [
@@ -350,33 +344,33 @@ const Portfolio = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
-        className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4"
+        className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4"
         onClick={onClose}
       >
         <motion.div
           initial={{ scale: 0.9, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           exit={{ scale: 0.9, opacity: 0 }}
-          className="bg-white rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto"
+          className="bg-dark-900 border border-white/10 rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto"
           onClick={(e) => e.stopPropagation()}
         >
           {/* Header */}
-          <div className="relative p-6 bg-gradient-to-r from-primary-600 to-secondary-600 text-white rounded-t-2xl">
+          <div className="relative p-6 bg-gradient-to-r from-primary-900 to-secondary-900 text-white rounded-t-2xl border-b border-white/10">
             <button
               onClick={onClose}
-              className="absolute top-4 right-4 w-8 h-8 bg-white/20 rounded-full flex items-center justify-center hover:bg-white/30 transition-colors"
+              className="absolute top-4 right-4 w-8 h-8 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20 transition-colors"
             >
               <X className="h-4 w-4" />
             </button>
-            
+
             <div className="flex items-start space-x-4">
-              <div className="w-16 h-16 bg-white/20 rounded-xl flex items-center justify-center">
-                <Globe className="h-8 w-8" />
+              <div className="w-16 h-16 bg-white/10 rounded-xl flex items-center justify-center border border-white/10">
+                <Globe className="h-8 w-8 text-primary-400" />
               </div>
               <div className="flex-1">
                 <h2 className="text-2xl font-bold mb-2">{caseStudy.title}</h2>
-                <p className="text-blue-100 mb-2">{caseStudy.subtitle}</p>
-                <div className="flex items-center space-x-4 text-sm">
+                <p className="text-blue-200 mb-2">{caseStudy.subtitle}</p>
+                <div className="flex items-center space-x-4 text-sm text-gray-300">
                   <div className="flex items-center space-x-1">
                     <MapPin className="h-4 w-4" />
                     <span>{caseStudy.location}</span>
@@ -394,17 +388,17 @@ const Portfolio = () => {
           <div className="p-6 space-y-8">
             {/* Overview */}
             <div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-3">Overview</h3>
-              <p className="text-gray-700 leading-relaxed">{caseStudy.overview}</p>
+              <h3 className="text-xl font-semibold text-white mb-3">Overview</h3>
+              <p className="text-gray-300 leading-relaxed">{caseStudy.overview}</p>
             </div>
 
             {/* Customer Testimonial */}
-            <div className="bg-gray-50 rounded-xl p-6">
+            <div className="bg-white/5 rounded-xl p-6 border border-white/10">
               <div className="flex items-start space-x-4">
-                <Quote className="h-8 w-8 text-primary-500 flex-shrink-0 mt-1" />
+                <Quote className="h-8 w-8 text-primary-400 flex-shrink-0 mt-1" />
                 <div>
-                  <p className="text-gray-700 italic mb-3 leading-relaxed">"{caseStudy.testimonial}"</p>
-                  <p className="text-sm font-medium text-gray-900">— {caseStudy.customer}</p>
+                  <p className="text-gray-300 italic mb-3 leading-relaxed">"{caseStudy.testimonial}"</p>
+                  <p className="text-sm font-medium text-white">— {caseStudy.customer}</p>
                 </div>
               </div>
             </div>
@@ -412,36 +406,36 @@ const Portfolio = () => {
             {/* Challenge, Solution, Impact */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               <div>
-                <h4 className="font-semibold text-gray-900 mb-3 flex items-center">
-                  <Target className="h-5 w-5 text-red-500 mr-2" />
+                <h4 className="font-semibold text-white mb-3 flex items-center">
+                  <Target className="h-5 w-5 text-red-400 mr-2" />
                   Challenge
                 </h4>
-                <p className="text-gray-700 text-sm leading-relaxed">{caseStudy.challenge}</p>
+                <p className="text-gray-400 text-sm leading-relaxed">{caseStudy.challenge}</p>
               </div>
               <div>
-                <h4 className="font-semibold text-gray-900 mb-3 flex items-center">
-                  <Zap className="h-5 w-5 text-blue-500 mr-2" />
+                <h4 className="font-semibold text-white mb-3 flex items-center">
+                  <Zap className="h-5 w-5 text-blue-400 mr-2" />
                   Solution
                 </h4>
-                <p className="text-gray-700 text-sm leading-relaxed">{caseStudy.solution}</p>
+                <p className="text-gray-400 text-sm leading-relaxed">{caseStudy.solution}</p>
               </div>
               <div>
-                <h4 className="font-semibold text-gray-900 mb-3 flex items-center">
-                  <Shield className="h-5 w-5 text-green-500 mr-2" />
+                <h4 className="font-semibold text-white mb-3 flex items-center">
+                  <Shield className="h-5 w-5 text-green-400 mr-2" />
                   Impact
                 </h4>
-                <p className="text-gray-700 text-sm leading-relaxed">{caseStudy.impact}</p>
+                <p className="text-gray-400 text-sm leading-relaxed">{caseStudy.impact}</p>
               </div>
             </div>
 
             {/* Metrics */}
             <div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-4">Key Metrics</h3>
+              <h3 className="text-xl font-semibold text-white mb-4">Key Metrics</h3>
               <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
                 {Object.entries(caseStudy.metrics).map(([key, value]) => (
-                  <div key={key} className="bg-gradient-to-r from-primary-50 to-secondary-50 rounded-lg p-4 text-center">
-                    <div className="font-bold text-primary-600 text-lg">{value}</div>
-                    <div className="text-gray-600 text-sm">{key}</div>
+                  <div key={key} className="bg-white/5 rounded-lg p-4 text-center border border-white/10">
+                    <div className="font-bold text-primary-400 text-lg">{value}</div>
+                    <div className="text-gray-400 text-sm">{key}</div>
                   </div>
                 ))}
               </div>
@@ -449,12 +443,12 @@ const Portfolio = () => {
 
             {/* Results */}
             <div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-4">Results Achieved</h3>
+              <h3 className="text-xl font-semibold text-white mb-4">Results Achieved</h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                 {caseStudy.results.map((result, index) => (
                   <div key={index} className="flex items-start space-x-3">
-                    <CheckCircle className="h-5 w-5 text-green-500 flex-shrink-0 mt-0.5" />
-                    <span className="text-gray-700 text-sm">{result}</span>
+                    <CheckCircle className="h-5 w-5 text-green-400 flex-shrink-0 mt-0.5" />
+                    <span className="text-gray-300 text-sm">{result}</span>
                   </div>
                 ))}
               </div>
@@ -466,24 +460,38 @@ const Portfolio = () => {
   )
 
   return (
-    <div className="min-h-screen pt-20">
+    <div className="min-h-screen bg-dark-950 pt-20 overflow-hidden">
       {/* Hero Section */}
-      <section className="relative py-20 bg-gradient-to-br from-primary-50 to-secondary-50">
-        <div className="container-custom">
+      <section className="relative py-20 hero-gradient">
+        {/* Background Elements */}
+        <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2260%22%20height%3D%2260%22%20viewBox%3D%220%200%2060%2060%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20fill%3D%22%23ffffff%22%20fill-opacity%3D%220.05%22%3E%3Ccircle%20cx%3D%2230%22%20cy%3D%2230%22%20r%3D%222%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-20"></div>
+
+        <div className="container-custom relative z-10">
           <div className="text-center">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-gray-900 mb-6">
+            <motion.h1
+              className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-white mb-6"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+            >
               Success <span className="text-gradient">Stories</span>
-            </h1>
-            <p className="text-xl text-gray-700 max-w-4xl mx-auto leading-relaxed">
-              Real transformations, measurable results. See how Motion Broadband has revolutionized 
+            </motion.h1>
+            <motion.p
+              className="text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+            >
+              Real transformations, measurable results. See how Motion Broadband has revolutionized
               connectivity for families, organizations, and businesses across South Sudan.
-            </p>
+            </motion.p>
           </div>
         </div>
       </section>
 
       {/* Stats Section */}
-      <section className="section-padding bg-white">
+      <section className="section-padding bg-dark-900 relative">
+        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
         <div className="container-custom">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
             {stats.map((stat, index) => (
@@ -491,12 +499,16 @@ const Portfolio = () => {
                 key={stat.label}
                 className="text-center group"
                 whileHover={{ scale: 1.05 }}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                viewport={{ once: true }}
               >
-                <div className="w-16 h-16 mx-auto mb-4 bg-gradient-to-r from-primary-500 to-secondary-500 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-lg">
-                  <stat.icon className="h-8 w-8 text-white" />
+                <div className="w-16 h-16 mx-auto mb-4 bg-white/5 rounded-full flex items-center justify-center group-hover:bg-white/10 transition-colors duration-300 border border-white/10">
+                  <stat.icon className="h-8 w-8 text-primary-400" />
                 </div>
-                <div className="text-2xl md:text-3xl font-bold text-gray-900 mb-2">{stat.number}</div>
-                <div className="text-gray-700 font-medium">{stat.label}</div>
+                <div className="text-2xl md:text-3xl font-bold text-white mb-2">{stat.number}</div>
+                <div className="text-gray-400 font-medium">{stat.label}</div>
               </motion.div>
             ))}
           </div>
@@ -504,13 +516,13 @@ const Portfolio = () => {
       </section>
 
       {/* Case Studies Section */}
-      <section className="section-padding bg-gradient-to-br from-gray-50 to-white">
+      <section className="section-padding bg-dark-950 relative">
         <div className="container-custom">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-display font-bold text-gray-900 mb-6">
+            <h2 className="text-3xl md:text-4xl font-display font-bold text-white mb-6">
               Detailed <span className="text-gradient">Case Studies</span>
             </h2>
-            <p className="text-xl text-gray-700 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-400 max-w-3xl mx-auto">
               In-depth analysis of our most successful deployments with measurable outcomes and customer testimonials.
             </p>
           </div>
@@ -521,11 +533,10 @@ const Portfolio = () => {
               <motion.button
                 key={filter.id}
                 onClick={() => setActiveFilter(filter.id)}
-                className={`px-6 py-3 rounded-lg font-medium transition-all duration-300 ${
-                  activeFilter === filter.id
+                className={`px-6 py-3 rounded-lg font-medium transition-all duration-300 ${activeFilter === filter.id
                     ? 'bg-gradient-to-r from-primary-500 to-secondary-500 text-white shadow-lg'
-                    : 'bg-white text-gray-700 hover:bg-gray-50 border border-gray-200'
-                }`}
+                    : 'bg-white/5 text-gray-300 hover:bg-white/10 border border-white/10'
+                  }`}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
@@ -536,28 +547,32 @@ const Portfolio = () => {
 
           {/* Case Studies Grid */}
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            {filteredCases.map((caseStudy) => (
+            {filteredCases.map((caseStudy, index) => (
               <motion.div
                 key={caseStudy.id}
-                className="card p-6 group hover:shadow-2xl transition-all duration-500 cursor-pointer"
+                className="glass-panel p-6 group hover:border-primary-500/50 transition-all duration-500 cursor-pointer border border-white/10 rounded-2xl"
                 whileHover={{ y: -10, scale: 1.02 }}
                 onClick={() => setSelectedCase(caseStudy)}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                viewport={{ once: true }}
               >
-                <div className="w-full h-48 bg-gradient-to-br from-primary-100 to-secondary-100 rounded-xl mb-6 flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
-                  <Globe className="h-16 w-16 text-primary-500" />
+                <div className="w-full h-48 bg-gradient-to-br from-primary-900/50 to-secondary-900/50 rounded-xl mb-6 flex items-center justify-center group-hover:scale-105 transition-transform duration-300 border border-white/5">
+                  <Globe className="h-16 w-16 text-primary-400" />
                 </div>
 
                 <div className="flex items-center space-x-2 mb-3">
-                  <MapPin className="h-4 w-4 text-primary-500" />
-                  <span className="text-sm text-gray-600">{caseStudy.location}</span>
+                  <MapPin className="h-4 w-4 text-primary-400" />
+                  <span className="text-sm text-gray-400">{caseStudy.location}</span>
                 </div>
 
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">{caseStudy.title}</h3>
-                <p className="text-gray-700 text-sm mb-4 line-clamp-3">{caseStudy.overview}</p>
+                <h3 className="text-xl font-semibold text-white mb-2">{caseStudy.title}</h3>
+                <p className="text-gray-400 text-sm mb-4 line-clamp-3">{caseStudy.overview}</p>
 
                 <div className="flex items-center justify-between">
-                  <span className="text-sm font-medium text-primary-600">{caseStudy.type}</span>
-                  <ArrowRight className="h-5 w-5 text-gray-400 group-hover:text-primary-500 transition-colors duration-300" />
+                  <span className="text-sm font-medium text-primary-400">{caseStudy.type}</span>
+                  <ArrowRight className="h-5 w-5 text-gray-500 group-hover:text-primary-400 transition-colors duration-300" />
                 </div>
               </motion.div>
             ))}

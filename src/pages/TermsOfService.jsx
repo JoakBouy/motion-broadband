@@ -52,25 +52,28 @@ const TermsOfService = () => {
   }
 
   return (
-    <div className="min-h-screen pt-20">
+    <div className="min-h-screen bg-dark-950 pt-20 overflow-hidden">
       {/* Hero Section */}
-      <section className="relative py-16 bg-gradient-to-br from-primary-50 to-secondary-50">
-        <div className="container-custom">
+      <section className="relative py-16 hero-gradient">
+        {/* Background Elements */}
+        <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2260%22%20height%3D%2260%22%20viewBox%3D%220%200%2060%2060%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20fill%3D%22%23ffffff%22%20fill-opacity%3D%220.05%22%3E%3Ccircle%20cx%3D%2230%22%20cy%3D%2230%22%20r%3D%222%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-20"></div>
+
+        <div className="container-custom relative z-10">
           <motion.div
             className="text-center max-w-4xl mx-auto"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-gray-900 mb-6">
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-white mb-6">
               Terms of <span className="text-gradient">Service</span>
             </h1>
-            <p className="text-lg md:text-xl text-gray-700 mb-8">
+            <p className="text-lg md:text-xl text-gray-300 mb-8">
               Please read these terms carefully before using Motion Broadband services
             </p>
-            
+
             {/* Version Info */}
-            <div className="flex flex-col sm:flex-row items-center justify-center space-y-2 sm:space-y-0 sm:space-x-6 text-sm text-gray-600">
+            <div className="flex flex-col sm:flex-row items-center justify-center space-y-2 sm:space-y-0 sm:space-x-6 text-sm text-gray-400">
               <div className="flex items-center space-x-2">
                 <Calendar className="h-4 w-4" />
                 <span>Last Updated: {lastUpdated}</span>
@@ -85,7 +88,8 @@ const TermsOfService = () => {
       </section>
 
       {/* Terms Content */}
-      <section className="section-padding bg-white">
+      <section className="section-padding bg-dark-900 relative">
+        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
         <div className="container-custom max-w-4xl mx-auto">
           <motion.div
             variants={containerVariants}
@@ -99,13 +103,13 @@ const TermsOfService = () => {
               variants={itemVariants}
               className="prose prose-lg max-w-none"
             >
-              <div className="bg-blue-50 border border-blue-200 rounded-xl p-6 mb-8">
-                <h2 className="text-xl font-semibold text-blue-900 mb-3 flex items-center">
+              <div className="bg-blue-500/10 border border-blue-500/30 rounded-xl p-6 mb-8">
+                <h2 className="text-xl font-semibold text-blue-300 mb-3 flex items-center">
                   <AlertTriangle className="h-5 w-5 mr-2" />
                   Important Notice
                 </h2>
-                <p className="text-blue-800 mb-0">
-                  These Terms of Service constitute a legally binding agreement between you and Motion Broadband. 
+                <p className="text-blue-200 mb-0">
+                  These Terms of Service constitute a legally binding agreement between you and Motion Broadband.
                   By using our services, you acknowledge that you have read, understood, and agree to be bound by these terms.
                 </p>
               </div>
@@ -116,15 +120,15 @@ const TermsOfService = () => {
               <motion.div
                 key={section.id}
                 variants={itemVariants}
-                className="bg-white border border-gray-200 rounded-xl p-8 shadow-sm hover:shadow-md transition-shadow duration-300"
+                className="glass-panel border border-white/10 rounded-xl p-8 hover:border-primary-500/30 transition-all duration-300"
               >
                 <div className="flex items-start space-x-4">
-                  <div className="w-12 h-12 bg-gradient-to-r from-primary-500 to-secondary-500 rounded-xl flex items-center justify-center flex-shrink-0">
+                  <div className="w-12 h-12 bg-gradient-to-r from-primary-500 to-secondary-500 rounded-xl flex items-center justify-center flex-shrink-0 shadow-lg">
                     <section.icon className="h-6 w-6 text-white" />
                   </div>
                   <div className="flex-1">
-                    <h2 className="text-2xl font-bold text-gray-900 mb-4">{section.title}</h2>
-                    <p className="text-gray-700 leading-relaxed">{section.content}</p>
+                    <h2 className="text-2xl font-bold text-white mb-4">{section.title}</h2>
+                    <p className="text-gray-300 leading-relaxed">{section.content}</p>
                   </div>
                 </div>
               </motion.div>
@@ -135,103 +139,103 @@ const TermsOfService = () => {
               variants={itemVariants}
               className="space-y-8"
             >
-              <div className="bg-white border border-gray-200 rounded-xl p-8 shadow-sm">
-                <h2 className="text-2xl font-bold text-gray-900 mb-4">6. Service Availability and Performance</h2>
-                <div className="space-y-4 text-gray-700">
+              <div className="glass-panel border border-white/10 rounded-xl p-8">
+                <h2 className="text-2xl font-bold text-white mb-4">6. Service Availability and Performance</h2>
+                <div className="space-y-4 text-gray-300">
                   <p>
-                    Motion Broadband strives to provide reliable internet service but cannot guarantee 100% uptime. 
-                    Service may be affected by weather conditions, satellite positioning, network maintenance, 
+                    Motion Broadband strives to provide reliable internet service but cannot guarantee 100% uptime.
+                    Service may be affected by weather conditions, satellite positioning, network maintenance,
                     or circumstances beyond our control.
                   </p>
                   <p>
-                    We aim for 99% service availability but are not liable for service interruptions due to 
+                    We aim for 99% service availability but are not liable for service interruptions due to
                     force majeure events, government actions, natural disasters, or third-party infrastructure failures.
                   </p>
                 </div>
               </div>
 
-              <div className="bg-white border border-gray-200 rounded-xl p-8 shadow-sm">
-                <h2 className="text-2xl font-bold text-gray-900 mb-4">7. Equipment and Installation</h2>
-                <div className="space-y-4 text-gray-700">
+              <div className="glass-panel border border-white/10 rounded-xl p-8">
+                <h2 className="text-2xl font-bold text-white mb-4">7. Equipment and Installation</h2>
+                <div className="space-y-4 text-gray-300">
                   <p>
-                    Equipment may be purchased or leased from Motion Broadband. Customers are responsible for 
-                    proper care and maintenance of equipment. Damaged or lost equipment will be charged at 
+                    Equipment may be purchased or leased from Motion Broadband. Customers are responsible for
+                    proper care and maintenance of equipment. Damaged or lost equipment will be charged at
                     replacement cost.
                   </p>
                   <p>
-                    Professional installation services are available. Customers attempting self-installation 
+                    Professional installation services are available. Customers attempting self-installation
                     do so at their own risk and must follow all provided instructions and safety guidelines.
                   </p>
                 </div>
               </div>
 
-              <div className="bg-white border border-gray-200 rounded-xl p-8 shadow-sm">
-                <h2 className="text-2xl font-bold text-gray-900 mb-4">8. Privacy and Data Protection</h2>
-                <div className="space-y-4 text-gray-700">
+              <div className="glass-panel border border-white/10 rounded-xl p-8">
+                <h2 className="text-2xl font-bold text-white mb-4">8. Privacy and Data Protection</h2>
+                <div className="space-y-4 text-gray-300">
                   <p>
-                    Motion Broadband respects your privacy and handles personal data in accordance with 
-                    South Sudanese data protection laws and our Privacy Policy. We collect only necessary 
+                    Motion Broadband respects your privacy and handles personal data in accordance with
+                    South Sudanese data protection laws and our Privacy Policy. We collect only necessary
                     information for service provision and account management.
                   </p>
                   <p>
-                    We may monitor network traffic for security, quality assurance, and network optimization 
+                    We may monitor network traffic for security, quality assurance, and network optimization
                     purposes but do not inspect the content of your communications.
                   </p>
                 </div>
               </div>
 
-              <div className="bg-white border border-gray-200 rounded-xl p-8 shadow-sm">
-                <h2 className="text-2xl font-bold text-gray-900 mb-4">9. Limitation of Liability</h2>
-                <div className="space-y-4 text-gray-700">
+              <div className="glass-panel border border-white/10 rounded-xl p-8">
+                <h2 className="text-2xl font-bold text-white mb-4">9. Limitation of Liability</h2>
+                <div className="space-y-4 text-gray-300">
                   <p>
-                    Motion Broadband's liability is limited to the monthly service fee paid by the customer. 
+                    Motion Broadband's liability is limited to the monthly service fee paid by the customer.
                     We are not liable for indirect, incidental, or consequential damages arising from service use.
                   </p>
                   <p>
-                    This limitation applies to the fullest extent permitted by South Sudanese law and does not 
+                    This limitation applies to the fullest extent permitted by South Sudanese law and does not
                     affect statutory consumer rights that cannot be excluded or limited.
                   </p>
                 </div>
               </div>
 
-              <div className="bg-white border border-gray-200 rounded-xl p-8 shadow-sm">
-                <h2 className="text-2xl font-bold text-gray-900 mb-4">10. Termination</h2>
-                <div className="space-y-4 text-gray-700">
+              <div className="glass-panel border border-white/10 rounded-xl p-8">
+                <h2 className="text-2xl font-bold text-white mb-4">10. Termination</h2>
+                <div className="space-y-4 text-gray-300">
                   <p>
-                    Either party may terminate service with 30 days written notice. Motion Broadband may 
+                    Either party may terminate service with 30 days written notice. Motion Broadband may
                     terminate service immediately for breach of terms, non-payment, or illegal use.
                   </p>
                   <p>
-                    Upon termination, all outstanding fees become immediately due, and equipment must be 
+                    Upon termination, all outstanding fees become immediately due, and equipment must be
                     returned in good condition within 14 days.
                   </p>
                 </div>
               </div>
 
-              <div className="bg-white border border-gray-200 rounded-xl p-8 shadow-sm">
-                <h2 className="text-2xl font-bold text-gray-900 mb-4">11. Dispute Resolution</h2>
-                <div className="space-y-4 text-gray-700">
+              <div className="glass-panel border border-white/10 rounded-xl p-8">
+                <h2 className="text-2xl font-bold text-white mb-4">11. Dispute Resolution</h2>
+                <div className="space-y-4 text-gray-300">
                   <p>
-                    Disputes should first be addressed through our customer service channels. If unresolved, 
+                    Disputes should first be addressed through our customer service channels. If unresolved,
                     disputes will be handled through mediation or arbitration as provided under South Sudanese law.
                   </p>
                   <p>
-                    These terms are governed by the laws of the Republic of South Sudan, and any legal 
+                    These terms are governed by the laws of the Republic of South Sudan, and any legal
                     proceedings must be conducted in South Sudanese courts.
                   </p>
                 </div>
               </div>
 
-              <div className="bg-white border border-gray-200 rounded-xl p-8 shadow-sm">
-                <h2 className="text-2xl font-bold text-gray-900 mb-4">12. Changes to Terms</h2>
-                <div className="space-y-4 text-gray-700">
+              <div className="glass-panel border border-white/10 rounded-xl p-8">
+                <h2 className="text-2xl font-bold text-white mb-4">12. Changes to Terms</h2>
+                <div className="space-y-4 text-gray-300">
                   <p>
-                    Motion Broadband reserves the right to modify these terms at any time. Changes will be 
-                    communicated via email, website notice, or other reasonable means at least 30 days 
+                    Motion Broadband reserves the right to modify these terms at any time. Changes will be
+                    communicated via email, website notice, or other reasonable means at least 30 days
                     before taking effect.
                   </p>
                   <p>
-                    Continued use of services after changes take effect constitutes acceptance of the 
+                    Continued use of services after changes take effect constitutes acceptance of the
                     modified terms. If you disagree with changes, you may terminate your service.
                   </p>
                 </div>
@@ -241,19 +245,19 @@ const TermsOfService = () => {
             {/* Contact Information */}
             <motion.div
               variants={itemVariants}
-              className="bg-gradient-to-r from-primary-50 to-secondary-50 border border-primary-200 rounded-xl p-8"
+              className="bg-gradient-to-r from-primary-900/50 to-secondary-900/50 border border-primary-500/30 rounded-xl p-8"
             >
-              <h2 className="text-2xl font-bold text-gray-900 mb-4">Contact Information</h2>
-              <div className="space-y-2 text-gray-700">
+              <h2 className="text-2xl font-bold text-white mb-4">Contact Information</h2>
+              <div className="space-y-2 text-gray-300">
                 <p><strong>Motion Broadband</strong></p>
                 <p>Juba, Republic of South Sudan</p>
                 <p>Email: legal@motionbroadbandltd.com</p>
                 <p>Phone: +211 922 383 300</p>
                 <p>Website: www.motionbroadbandltd.com</p>
               </div>
-              <div className="mt-6 pt-6 border-t border-primary-200">
-                <p className="text-sm text-gray-600">
-                  For questions about these terms or our services, please contact our customer support team. 
+              <div className="mt-6 pt-6 border-t border-primary-500/30">
+                <p className="text-sm text-gray-400">
+                  For questions about these terms or our services, please contact our customer support team.
                   We are committed to providing clear information about your rights and responsibilities as a Motion Broadband customer.
                 </p>
               </div>

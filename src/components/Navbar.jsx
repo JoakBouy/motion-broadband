@@ -10,7 +10,7 @@ const Navbar = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 50)
+      setScrolled(window.scrollY > 20)
     }
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
@@ -29,11 +29,10 @@ const Navbar = () => {
     <motion.nav
       initial={{ y: -100 }}
       animate={{ y: 0 }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? 'bg-white/95 backdrop-blur-md shadow-lg border-b border-gray-200'
-          : 'bg-transparent'
-      }`}
+      className={`fixed z-50 transition-all duration-300 ${scrolled
+        ? 'top-4 left-4 right-4 rounded-2xl bg-dark-900/80 backdrop-blur-md shadow-lg border border-white/10'
+        : 'top-0 left-0 right-0 bg-transparent'
+        }`}
     >
       <div className="container-custom">
         <div className="flex items-center justify-between h-16 lg:h-20">
@@ -44,8 +43,8 @@ const Navbar = () => {
               whileTap={{ scale: 0.95 }}
               className="flex items-center space-x-2"
             >
-              <Wifi className="h-8 w-8 text-primary-600" />
-              <span className="text-xl lg:text-2xl font-display font-bold text-gradient">
+              <img src="/logo.png" alt="Motion Broadband Logo" className="h-10 w-auto" />
+              <span className="text-xl lg:text-2xl font-display font-bold text-white tracking-tight">
                 Motion Broadband
               </span>
             </motion.div>
@@ -57,17 +56,16 @@ const Navbar = () => {
               <Link
                 key={item.name}
                 to={item.path}
-                className={`relative font-medium transition-colors duration-200 ${
-                  isActive(item.path)
-                    ? 'text-primary-600'
-                    : 'text-gray-700 hover:text-primary-600'
-                }`}
+                className={`relative font-medium transition-colors duration-200 ${isActive(item.path)
+                  ? 'text-white'
+                  : 'text-gray-400 hover:text-white'
+                  }`}
               >
                 {item.name}
                 {isActive(item.path) && (
                   <motion.div
                     layoutId="activeTab"
-                    className="absolute -bottom-1 left-0 right-0 h-0.5 bg-gradient-to-r from-primary-600 to-secondary-600"
+                    className="absolute -bottom-1 left-0 right-0 h-0.5 bg-gradient-to-r from-primary-500 to-secondary-500"
                     initial={false}
                     transition={{ type: "spring", stiffness: 500, damping: 30 }}
                   />
@@ -82,7 +80,7 @@ const Navbar = () => {
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="btn-primary"
+                className="btn-primary py-2 px-6 text-sm"
               >
                 Get Started
               </motion.button>
@@ -92,7 +90,7 @@ const Navbar = () => {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="lg:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors"
+            className="lg:hidden p-2 rounded-lg hover:bg-white/10 transition-colors"
           >
             <AnimatePresence mode="wait">
               {isOpen ? (
@@ -103,7 +101,7 @@ const Navbar = () => {
                   exit={{ rotate: 90, opacity: 0 }}
                   transition={{ duration: 0.2 }}
                 >
-                  <X className="h-6 w-6 text-gray-700" />
+                  <X className="h-6 w-6 text-white" />
                 </motion.div>
               ) : (
                 <motion.div
@@ -113,7 +111,7 @@ const Navbar = () => {
                   exit={{ rotate: -90, opacity: 0 }}
                   transition={{ duration: 0.2 }}
                 >
-                  <Menu className="h-6 w-6 text-gray-700" />
+                  <Menu className="h-6 w-6 text-white" />
                 </motion.div>
               )}
             </AnimatePresence>
@@ -128,9 +126,9 @@ const Navbar = () => {
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
               transition={{ duration: 0.3 }}
-              className="lg:hidden bg-white border-t border-gray-200 shadow-lg"
+              className="lg:hidden bg-dark-900/95 border-t border-white/10 backdrop-blur-xl rounded-b-2xl overflow-hidden"
             >
-              <div className="py-4 space-y-2">
+              <div className="py-4 space-y-2 px-4">
                 {navItems.map((item, index) => (
                   <motion.div
                     key={item.name}
@@ -141,11 +139,10 @@ const Navbar = () => {
                     <Link
                       to={item.path}
                       onClick={() => setIsOpen(false)}
-                      className={`block px-4 py-2 rounded-lg transition-colors ${
-                        isActive(item.path)
-                          ? 'bg-gradient-to-r from-primary-50 to-secondary-50 text-primary-600 font-medium'
-                          : 'text-gray-700 hover:bg-gray-50'
-                      }`}
+                      className={`block px-4 py-3 rounded-lg transition-colors ${isActive(item.path)
+                        ? 'bg-primary-500/10 text-primary-400 font-medium'
+                        : 'text-gray-400 hover:bg-white/5 hover:text-white'
+                        }`}
                     >
                       {item.name}
                     </Link>
@@ -155,7 +152,7 @@ const Navbar = () => {
                   initial={{ x: -20, opacity: 0 }}
                   animate={{ x: 0, opacity: 1 }}
                   transition={{ delay: navItems.length * 0.1 }}
-                  className="px-4 pt-2"
+                  className="pt-4"
                 >
                   <Link to="/contact">
                     <button className="w-full btn-primary">

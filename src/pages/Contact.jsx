@@ -9,7 +9,6 @@ import {
   MessageCircle,
   Send,
   CheckCircle,
-  Globe,
   Users,
   Shield,
   AlertCircle
@@ -33,28 +32,28 @@ const Contact = () => {
       title: 'Office Address',
       content: 'Plot 27, Munuki, Block B, Juba, Central Equatoria State, South Sudan',
       link: '#',
-      color: 'from-blue-500 to-cyan-500'
+      color: 'text-primary-400'
     },
     {
       icon: Phone,
       title: 'Phone Numbers',
       content: '+211 92 700 1026\n+211 92 239 3300 (SMS/WhatsApp)',
       link: 'tel:+211927001026',
-      color: 'from-green-500 to-emerald-500'
+      color: 'text-secondary-400'
     },
     {
       icon: Mail,
       title: 'Email Address',
       content: 'sales@motionbroadbandltd.com\nbroadband.motion@gmail.com',
       link: 'mailto:sales@motionbroadbandltd.com',
-      color: 'from-purple-500 to-pink-500'
+      color: 'text-accent-400'
     },
     {
       icon: Clock,
       title: 'Support Hours',
       content: '24/7 Customer Support Available\nRound-the-clock assistance',
       link: '#',
-      color: 'from-orange-500 to-red-500'
+      color: 'text-primary-400'
     }
   ]
 
@@ -143,50 +142,68 @@ const Contact = () => {
   }
 
   return (
-    <div className="min-h-screen pt-20">
+    <div className="min-h-screen bg-dark-950 pt-20 overflow-hidden">
       {/* Hero Section */}
-      <section className="relative py-20 bg-gradient-to-br from-primary-50 to-secondary-50">
-        <div className="container-custom">
+      <section className="relative py-20 hero-gradient">
+        {/* Background Elements */}
+        <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2260%22%20height%3D%2260%22%20viewBox%3D%220%200%2060%2060%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20fill%3D%22%23ffffff%22%20fill-opacity%3D%220.05%22%3E%3Ccircle%20cx%3D%2230%22%20cy%3D%2230%22%20r%3D%222%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-20"></div>
+
+        <div className="container-custom relative z-10">
           <div className="text-center">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-gray-900 mb-6">
+            <motion.h1
+              className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-white mb-6"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+            >
               Get in <span className="text-gradient">Touch</span>
-            </h1>
-            <p className="text-xl text-gray-700 max-w-4xl mx-auto leading-relaxed">
-              Ready to experience the best internet connectivity in South Sudan? Contact us today and let's 
+            </motion.h1>
+            <motion.p
+              className="text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+            >
+              Ready to experience the best internet connectivity in South Sudan? Contact us today and let's
               get you connected with fast, reliable, and affordable Starlink internet service.
-            </p>
+            </motion.p>
           </div>
         </div>
       </section>
 
       {/* Contact Information */}
-      <section className="section-padding bg-white">
+      <section className="section-padding bg-dark-900 relative">
+        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
         <div className="container-custom">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-display font-bold text-gray-900 mb-6">
+            <h2 className="text-3xl md:text-4xl font-display font-bold text-white mb-6">
               Contact <span className="text-gradient">Information</span>
             </h2>
-            <p className="text-xl text-gray-700 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-400 max-w-3xl mx-auto">
               Multiple ways to reach us. We're here to help you get connected and stay connected.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {contactInfo.map((info) => (
+            {contactInfo.map((info, index) => (
               <motion.div
                 key={info.title}
-                className="card p-6 text-center group hover:shadow-2xl transition-all duration-500"
+                className="glass-panel p-6 text-center group hover:border-primary-500/50 transition-all duration-500 border border-white/10 rounded-2xl"
                 whileHover={{ y: -10 }}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                viewport={{ once: true }}
               >
                 <div className="w-16 h-16 mx-auto mb-4 rounded-2xl bg-gradient-to-r from-primary-500 to-secondary-500 flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-lg">
                   <info.icon className="h-8 w-8 text-white" />
                 </div>
-                <h3 className="text-lg font-semibold text-gray-900 mb-3">{info.title}</h3>
-                <p className="text-gray-700 text-sm whitespace-pre-line">{info.content}</p>
+                <h3 className="text-lg font-semibold text-white mb-3">{info.title}</h3>
+                <p className="text-gray-400 text-sm whitespace-pre-line">{info.content}</p>
                 {info.link !== '#' && (
-                  <a 
+                  <a
                     href={info.link}
-                    className="inline-block mt-3 text-primary-600 hover:text-primary-700 font-medium text-sm"
+                    className="inline-block mt-3 text-primary-400 hover:text-primary-300 font-medium text-sm transition-colors"
                   >
                     Contact Now →
                   </a>
@@ -198,63 +215,74 @@ const Contact = () => {
       </section>
 
       {/* Contact Form */}
-      <section className="section-padding bg-gradient-to-br from-gray-50 to-white">
+      <section className="section-padding bg-dark-950 relative">
         <div className="container-custom">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-            <div>
-              <h2 className="text-3xl md:text-4xl font-display font-bold text-gray-900 mb-6">
+            <motion.div
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+            >
+              <h2 className="text-3xl md:text-4xl font-display font-bold text-white mb-6">
                 Send Us a <span className="text-gradient">Message</span>
               </h2>
-              <p className="text-xl text-gray-700 mb-8 leading-relaxed">
-                Have questions about our services? Want to get started with Starlink internet? 
+              <p className="text-xl text-gray-400 mb-8 leading-relaxed">
+                Have questions about our services? Want to get started with Starlink internet?
                 Fill out the form and we'll get back to you as soon as possible.
               </p>
-              
+
               <div className="space-y-6">
                 <div className="flex items-start space-x-4">
-                  <div className="w-12 h-12 bg-gradient-to-r from-primary-500 to-secondary-500 rounded-full flex items-center justify-center flex-shrink-0">
-                    <MessageCircle className="h-6 w-6 text-white" />
+                  <div className="w-12 h-12 bg-white/5 rounded-full flex items-center justify-center flex-shrink-0 border border-white/10">
+                    <MessageCircle className="h-6 w-6 text-primary-400" />
                   </div>
                   <div>
-                    <h3 className="text-lg font-semibold text-gray-900 mb-2">Quick Response</h3>
-                    <p className="text-gray-700">We typically respond within 24 hours to all inquiries.</p>
+                    <h3 className="text-lg font-semibold text-white mb-2">Quick Response</h3>
+                    <p className="text-gray-400">We typically respond within 24 hours to all inquiries.</p>
                   </div>
                 </div>
-                
+
                 <div className="flex items-start space-x-4">
-                  <div className="w-12 h-12 bg-gradient-to-r from-primary-500 to-secondary-500 rounded-full flex items-center justify-center flex-shrink-0">
-                    <Users className="h-6 w-6 text-white" />
+                  <div className="w-12 h-12 bg-white/5 rounded-full flex items-center justify-center flex-shrink-0 border border-white/10">
+                    <Users className="h-6 w-6 text-secondary-400" />
                   </div>
                   <div>
-                    <h3 className="text-lg font-semibold text-gray-900 mb-2">Expert Support</h3>
-                    <p className="text-gray-700">Our team of experts is ready to help you with any questions.</p>
+                    <h3 className="text-lg font-semibold text-white mb-2">Expert Support</h3>
+                    <p className="text-gray-400">Our team of experts is ready to help you with any questions.</p>
                   </div>
                 </div>
-                
+
                 <div className="flex items-start space-x-4">
-                  <div className="w-12 h-12 bg-gradient-to-r from-primary-500 to-secondary-500 rounded-full flex items-center justify-center flex-shrink-0">
-                    <Shield className="h-6 w-6 text-white" />
+                  <div className="w-12 h-12 bg-white/5 rounded-full flex items-center justify-center flex-shrink-0 border border-white/10">
+                    <Shield className="h-6 w-6 text-accent-400" />
                   </div>
                   <div>
-                    <h3 className="text-lg font-semibold text-gray-900 mb-2">Secure Communication</h3>
-                    <p className="text-gray-700">Your information is safe and secure with us.</p>
+                    <h3 className="text-lg font-semibold text-white mb-2">Secure Communication</h3>
+                    <p className="text-gray-400">Your information is safe and secure with us.</p>
                   </div>
                 </div>
               </div>
-            </div>
+            </motion.div>
 
-            <div className="card p-8">
+            <motion.div
+              className="card p-8 shadow-glow"
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              viewport={{ once: true }}
+            >
               {submitSuccess ? (
                 <div className="text-center py-8">
                   <CheckCircle className="h-16 w-16 text-green-500 mx-auto mb-4" />
-                  <h3 className="text-2xl font-semibold text-gray-900 mb-2">Message Sent!</h3>
-                  <p className="text-gray-700">Thank you for contacting us. We'll get back to you soon.</p>
+                  <h3 className="text-2xl font-semibold text-white mb-2">Message Sent!</h3>
+                  <p className="text-gray-400">Thank you for contacting us. We'll get back to you soon.</p>
                 </div>
               ) : submitError ? (
                 <div className="text-center py-8">
                   <AlertCircle className="h-16 w-16 text-red-500 mx-auto mb-4" />
-                  <h3 className="text-2xl font-semibold text-gray-900 mb-2">Message Failed to Send</h3>
-                  <p className="text-gray-700 mb-4">Sorry, there was an error with both our email service and the backup method. Please contact us directly at sales@motionbroadbandltd.com or try again.</p>
+                  <h3 className="text-2xl font-semibold text-white mb-2">Message Failed to Send</h3>
+                  <p className="text-gray-400 mb-4">Sorry, there was an error with both our email service and the backup method. Please contact us directly at sales@motionbroadbandltd.com or try again.</p>
                   <button
                     onClick={() => setSubmitError(false)}
                     className="btn-primary"
@@ -266,7 +294,7 @@ const Contact = () => {
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
-                      <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
+                      <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">
                         Full Name *
                       </label>
                       <input
@@ -276,12 +304,12 @@ const Contact = () => {
                         value={formData.name}
                         onChange={handleInputChange}
                         required
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors duration-200"
+                        className="w-full px-4 py-3 bg-dark-800 border border-gray-700 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent text-white placeholder-gray-500 transition-colors duration-200"
                         placeholder="Enter your full name"
                       />
                     </div>
                     <div>
-                      <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+                      <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-2">
                         Email Address *
                       </label>
                       <input
@@ -291,15 +319,15 @@ const Contact = () => {
                         value={formData.email}
                         onChange={handleInputChange}
                         required
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors duration-200"
+                        className="w-full px-4 py-3 bg-dark-800 border border-gray-700 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent text-white placeholder-gray-500 transition-colors duration-200"
                         placeholder="Enter your email"
                       />
                     </div>
                   </div>
-                  
+
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
-                      <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
+                      <label htmlFor="phone" className="block text-sm font-medium text-gray-300 mb-2">
                         Phone Number
                       </label>
                       <input
@@ -308,12 +336,12 @@ const Contact = () => {
                         name="phone"
                         value={formData.phone}
                         onChange={handleInputChange}
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors duration-200"
+                        className="w-full px-4 py-3 bg-dark-800 border border-gray-700 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent text-white placeholder-gray-500 transition-colors duration-200"
                         placeholder="Enter your phone number"
                       />
                     </div>
                     <div>
-                      <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-2">
+                      <label htmlFor="subject" className="block text-sm font-medium text-gray-300 mb-2">
                         Subject *
                       </label>
                       <input
@@ -323,14 +351,14 @@ const Contact = () => {
                         value={formData.subject}
                         onChange={handleInputChange}
                         required
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors duration-200"
+                        className="w-full px-4 py-3 bg-dark-800 border border-gray-700 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent text-white placeholder-gray-500 transition-colors duration-200"
                         placeholder="What's this about?"
                       />
                     </div>
                   </div>
-                  
+
                   <div>
-                    <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
+                    <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-2">
                       Message *
                     </label>
                     <textarea
@@ -340,11 +368,11 @@ const Contact = () => {
                       onChange={handleInputChange}
                       required
                       rows={6}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors duration-200"
+                      className="w-full px-4 py-3 bg-dark-800 border border-gray-700 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent text-white placeholder-gray-500 transition-colors duration-200"
                       placeholder="Tell us more about your inquiry..."
                     />
                   </div>
-                  
+
                   <motion.button
                     type="submit"
                     disabled={isSubmitting}
@@ -366,7 +394,7 @@ const Contact = () => {
                   </motion.button>
                 </form>
               )}
-            </div>
+            </motion.div>
           </div>
         </div>
       </section>
@@ -374,4 +402,4 @@ const Contact = () => {
   )
 }
 
-export default Contact 
+export default Contact

@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { Wifi, Mail, Phone, MapPin, Facebook, Twitter, Instagram, Linkedin, Youtube } from 'lucide-react'
+import { Mail, Phone, MapPin, Facebook, Twitter, Instagram, Linkedin, Youtube } from 'lucide-react'
 
 const Footer = () => {
   const currentYear = new Date().getFullYear()
@@ -38,7 +38,7 @@ const Footer = () => {
   ]
 
   return (
-    <footer className="bg-gradient-to-br from-gray-900 to-gray-800 text-white">
+    <footer className="bg-dark-950 text-white border-t border-white/10">
       <div className="container-custom py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Company Info */}
@@ -50,15 +50,15 @@ const Footer = () => {
               viewport={{ once: true }}
             >
               <Link to="/" className="flex items-center space-x-2 mb-6">
-                <Wifi className="h-8 w-8 text-primary-400" />
-                <span className="text-xl font-display font-bold text-white">
+                <img src="/logo.png" alt="Motion Broadband Logo" className="h-10 w-auto" />
+                <span className="text-xl font-display font-bold text-white tracking-tight">
                   Motion Broadband
                 </span>
               </Link>
-              <p className="text-gray-300 mb-6 leading-relaxed">
+              <p className="text-gray-400 mb-6 leading-relaxed">
                 Connecting communities with lightning-fast internet. Experience the future of connectivity with our cutting-edge satellite technology powered by Starlink.
               </p>
-              
+
               {/* Contact Info */}
               <div className="space-y-3">
                 {contactInfo.map((contact, index) => (
@@ -69,7 +69,7 @@ const Footer = () => {
                     whileInView={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.6, delay: index * 0.1 }}
                     viewport={{ once: true }}
-                    className="flex items-center space-x-3 text-gray-300 hover:text-primary-400 transition-colors"
+                    className="flex items-center space-x-3 text-gray-400 hover:text-primary-400 transition-colors"
                   >
                     <contact.icon className="h-4 w-4" />
                     <span className="text-sm">{contact.text}</span>
@@ -92,7 +92,7 @@ const Footer = () => {
                 <li key={link.name}>
                   <Link
                     to={link.path}
-                    className="text-gray-300 hover:text-primary-400 transition-colors duration-200"
+                    className="text-gray-400 hover:text-primary-400 transition-colors duration-200"
                   >
                     {link.name}
                   </Link>
@@ -114,7 +114,7 @@ const Footer = () => {
                 <li key={link.name}>
                   <Link
                     to={link.path}
-                    className="text-gray-300 hover:text-primary-400 transition-colors duration-200"
+                    className="text-gray-400 hover:text-primary-400 transition-colors duration-200"
                   >
                     {link.name}
                   </Link>
@@ -136,7 +136,7 @@ const Footer = () => {
                 <li key={link.name}>
                   <Link
                     to={link.path}
-                    className="text-gray-300 hover:text-primary-400 transition-colors duration-200"
+                    className="text-gray-400 hover:text-primary-400 transition-colors duration-200"
                   >
                     {link.name}
                   </Link>
@@ -152,13 +152,13 @@ const Footer = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.8 }}
           viewport={{ once: true }}
-          className="border-t border-gray-700 mt-12 pt-8"
+          className="border-t border-white/10 mt-12 pt-8"
         >
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-            <p className="text-gray-400 text-sm">
+            <p className="text-gray-500 text-sm">
               © {currentYear} Motion Broadband. All rights reserved.
             </p>
-            
+
             {/* Social Links */}
             <div className="flex space-x-4">
               {socialLinks.map((social, index) => (
@@ -167,10 +167,10 @@ const Footer = () => {
                   href={social.href}
                   whileHover={{ scale: 1.1, y: -2 }}
                   whileTap={{ scale: 0.95 }}
-                  className="p-2 bg-gray-700 rounded-lg hover:bg-gradient-to-r hover:from-primary-600 hover:to-secondary-600 transition-all duration-200"
+                  className="p-2 bg-white/5 rounded-lg hover:bg-gradient-to-r hover:from-primary-600 hover:to-secondary-600 transition-all duration-200"
                   aria-label={social.label}
                 >
-                  <social.icon className="h-5 w-5" />
+                  <social.icon className="h-5 w-5 text-gray-400 hover:text-white" />
                 </motion.a>
               ))}
             </div>
@@ -181,4 +181,4 @@ const Footer = () => {
   )
 }
 
-export default Footer 
+export default Footer
