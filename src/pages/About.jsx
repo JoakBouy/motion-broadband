@@ -296,6 +296,7 @@ const About = () => {
               transition={{ duration: 0.8, delay: 0.4 }}
               viewport={{ once: true }}
             >
+              <img src="/south-sudan-aerial.png" alt="Aerial view of South Sudan" className="w-full h-full object-cover" />
               {/* Image overlay with gradient for text readability */}
               <div className="absolute inset-0 bg-gradient-to-t from-dark-950/80 via-transparent to-transparent" />
 
